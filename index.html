@@ -433,7 +433,7 @@
     /* ── Projects ── */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
     }
 
@@ -838,21 +838,39 @@
   </div>
 
   <div class="pub-card">
+    <div class="pub-venue">📄 Sensors 2025 · 7 citations</div>
+    <div class="pub-title">End-to-End Privacy-Aware Federated Learning for Wearable Health Devices via Encrypted Aggregation in Programmable Networks</div>
+    <div class="pub-authors"><strong>H. Khan</strong>, R. Kavati, S.S. Pulkaram, A. Jalooli</div>
+  </div>
+
+  <div class="pub-card">
+    <div class="pub-venue">📄 IEEE 2026</div>
+    <div class="pub-title">Securing Federated Learning in Health IoT with Edge-Assisted Homomorphic Encryption</div>
+    <div class="pub-authors">R. Kavati, S.S. Pulkaram, <strong>H. Khan</strong>, A. Jalooli</div>
+  </div>
+
+  <div class="pub-card">
+    <div class="pub-venue">📄 IEEE 2026</div>
+    <div class="pub-title">Efficient Privacy-Preserving In-Network Data Aggregation for Low-Latency Healthcare IoT</div>
+    <div class="pub-authors"><strong>H. Khan</strong>, S.S. Pulkaram, A. Jalooli</div>
+  </div>
+
+  <div class="pub-card">
     <div class="pub-venue">📄 ICNC 2025 · IEEE</div>
     <div class="pub-title">Bridging Security and Efficiency: Energy-Aware Clustering for Data Encryption in Smart Agriculture</div>
-    <div class="pub-authors"><strong>Huzaif Khan</strong>, Lokesh Purohit, Ali Jalooli</div>
+    <div class="pub-authors"><strong>H. Khan</strong>, L. Purohit, A. Jalooli</div>
   </div>
 
   <div class="pub-card">
-    <div class="pub-venue">📄 CSNET 2024 · IEEE</div>
+    <div class="pub-venue">📄 IEEE CCNC 2025</div>
+    <div class="pub-title">Energy-Aware Clustering for Efficient CKKS Encryption in Smart Agriculture</div>
+    <div class="pub-authors"><strong>H. Khan</strong>, L. Purohit, A. Jalooli</div>
+  </div>
+
+  <div class="pub-card">
+    <div class="pub-venue">📄 CSNet 2024 · 2 citations</div>
     <div class="pub-title">Blockchain-Enabled Collaborative Forged Message Detection in RSU-Based VANETs</div>
-    <div class="pub-authors">Ali Jalooli, <strong>Huzaif Khan</strong>, Lokesh Purohit</div>
-  </div>
-
-  <div class="pub-card">
-    <div class="pub-venue">🪧 IEEE CCNC 2025 · Poster</div>
-    <div class="pub-title">Poster Presentation — Scalable and Secure ML Model Orchestration in Distributed Environments</div>
-    <div class="pub-authors"><strong>Huzaif Khan</strong> et al.</div>
+    <div class="pub-authors">A. Jalooli, <strong>H. Khan</strong>, L. Purohit</div>
   </div>
 </section>
 
@@ -865,67 +883,95 @@
   </div>
 
   <div class="projects-grid">
-    <div class="project-card">
+    <a href="https://github.com/Huzzzaif/nlp-cancer-prediction" target="_blank" class="project-card" style="text-decoration:none;color:inherit;">
       <div class="project-icon">🧬</div>
-      <div class="project-title">Medical Text Classification</div>
+      <div class="project-title">NLP Cancer Prediction</div>
       <div class="project-desc">
         Multi-stage NLP pipeline classifying 32 cancer types. TF-IDF + SVM baseline with fine-tuned BioBERT for production accuracy. 
-        Custom clinical masking dictionary to prevent label leakage. Interactive Next.js model playground.
+        Custom clinical masking dictionary to prevent label leakage.
       </div>
       <div class="project-tags">
         <span class="project-tag">BioBERT</span>
         <span class="project-tag">NLP</span>
         <span class="project-tag">PyTorch</span>
-        <span class="project-tag">Next.js</span>
-        <span class="project-tag">SVM</span>
+        <span class="project-tag">Deep Learning</span>
       </div>
-    </div>
+    </a>
 
-    <div class="project-card">
-      <div class="project-icon">🤖</div>
-      <div class="project-title">AI Chatbot on AWS</div>
+    <a href="https://github.com/Huzzzaif/medical_pred_frontend" target="_blank" class="project-card" style="text-decoration:none;color:inherit;">
+      <div class="project-icon">🏥</div>
+      <div class="project-title">Medical Prediction App</div>
       <div class="project-desc">
-        Fully serverless generative AI chatbot using AWS Lambda, API Gateway, and GPT-3.5. 
-        Cognito for auth, DynamoDB for scalable chat history. End-to-end observability and production-ready deployment.
-      </div>
-      <div class="project-tags">
-        <span class="project-tag">AWS Lambda</span>
-        <span class="project-tag">GPT-3.5</span>
-        <span class="project-tag">DynamoDB</span>
-        <span class="project-tag">Cognito</span>
-        <span class="project-tag">Serverless</span>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-icon">🔐</div>
-      <div class="project-title">Federated Learning Pipeline</div>
-      <div class="project-desc">
-        Privacy-preserving ML pipeline integrating homomorphic encryption with optimized K-means clustering. 
-        PostgreSQL-backed observability layer for monitoring inference metrics and surfacing anomalies.
-      </div>
-      <div class="project-tags">
-        <span class="project-tag">Federated Learning</span>
-        <span class="project-tag">HE</span>
-        <span class="project-tag">PostgreSQL</span>
-        <span class="project-tag">Python</span>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <div class="project-icon">📊</div>
-      <div class="project-title">GPU Market Terminal</div>
-      <div class="project-desc">
-        Real-time compute spot pricing dashboard comparing GPU costs across cloud providers. 
-        Filters, sorting, availability status, and market average charts. Built with Replit.
+        Full-stack React application serving a trained ML model for medical predictions.
+        End-to-end pipeline from model training to interactive frontend deployment.
       </div>
       <div class="project-tags">
         <span class="project-tag">React</span>
-        <span class="project-tag">API</span>
+        <span class="project-tag">ML</span>
+        <span class="project-tag">Full-Stack</span>
+        <span class="project-tag">Next.js</span>
+      </div>
+    </a>
+
+    <a href="https://github.com/Huzzzaif/finance_bot" target="_blank" class="project-card" style="text-decoration:none;color:inherit;">
+      <div class="project-icon">💰</div>
+      <div class="project-title">Finance Bot</div>
+      <div class="project-desc">
+        AI-powered financial assistant for intelligent analysis. 
+        Uses LLMs for natural language financial queries and automated insights generation.
+      </div>
+      <div class="project-tags">
+        <span class="project-tag">Python</span>
+        <span class="project-tag">AI</span>
+        <span class="project-tag">LLM</span>
+        <span class="project-tag">FinTech</span>
+      </div>
+    </a>
+
+    <a href="https://github.com/Huzzzaif/zkp-blockchain-llm-sim" target="_blank" class="project-card" style="text-decoration:none;color:inherit;">
+      <div class="project-icon">🔐</div>
+      <div class="project-title">ZKP Blockchain × LLM</div>
+      <div class="project-desc">
+        Zero-knowledge proof blockchain simulation with LLM integration. 
+        Explores the intersection of cryptographic privacy and language model capabilities.
+      </div>
+      <div class="project-tags">
+        <span class="project-tag">Blockchain</span>
+        <span class="project-tag">ZKP</span>
+        <span class="project-tag">LLM</span>
+        <span class="project-tag">Cryptography</span>
+      </div>
+    </a>
+
+    <a href="https://github.com/Huzzzaif/see_the_tone" target="_blank" class="project-card" style="text-decoration:none;color:inherit;">
+      <div class="project-icon">🎭</div>
+      <div class="project-title">See The Tone</div>
+      <div class="project-desc">
+        Real-time sentiment and tone analysis powered by NLP.
+        Analyzes text input to detect emotional tone, sentiment polarity, and linguistic patterns.
+      </div>
+      <div class="project-tags">
+        <span class="project-tag">Python</span>
+        <span class="project-tag">NLP</span>
+        <span class="project-tag">Sentiment</span>
+        <span class="project-tag">Analysis</span>
+      </div>
+    </a>
+
+    <a href="https://gpu-cost-tracker--huzaiffkhhan.replit.app" target="_blank" class="project-card" style="text-decoration:none;color:inherit;">
+      <div class="project-icon">📊</div>
+      <div class="project-title">GPU Market Terminal</div>
+      <div class="project-desc">
+        Real-time compute spot pricing dashboard comparing GPU costs across cloud providers (AWS, GCP, Lambda Labs, RunPod, Vast.ai). 
+        Filters, sorting, availability status, and market average charts.
+      </div>
+      <div class="project-tags">
+        <span class="project-tag">React</span>
         <span class="project-tag">Dashboard</span>
+        <span class="project-tag">Cloud</span>
         <span class="project-tag">Replit</span>
       </div>
-    </div>
+    </a>
   </div>
 </section>
 
