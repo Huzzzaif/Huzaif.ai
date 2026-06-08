@@ -116,12 +116,17 @@
     .hero-tag::before { content: ''; width: 32px; height: 1.5px; background: var(--burgundy); }
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(3rem, 7vw, 5.5rem);
-      font-weight: 800; line-height: 1.05;
-      color: var(--burgundy-deep); letter-spacing: -0.03em; margin-bottom: 1.5rem;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 700; line-height: 1.1;
+      color: var(--burgundy-deep); letter-spacing: -0.02em; margin-bottom: 1.2rem;
       opacity: 0; animation: slideUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.5s forwards;
     }
-    .hero h1 em { font-style: italic; font-weight: 400; color: var(--burgundy-mid); }
+    .hero-qual {
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(0.85rem, 1.2vw, 1.05rem);
+      font-weight: 400; color: var(--text-muted);
+      letter-spacing: 0;
+    }
     .hero-description {
       font-size: 1.15rem; line-height: 1.8; color: var(--text-secondary);
       max-width: 580px; margin-bottom: 2.5rem;
@@ -520,7 +525,7 @@
   <div class="hero-inner">
     <div class="hero-content">
       <div class="hero-tag">Software Engineer · ML Researcher</div>
-      <h1>Huzaif<br><em>Khan</em></h1>
+      <h1>Huzaif Khan<span class="hero-qual">, M.S. Computer Science</span></h1>
       <p class="hero-description">
         I build machine learning systems that learn from sensitive data without ever
         seeing it. Full-stack engineer and published researcher (6+ IEEE/MDPI papers)
@@ -543,7 +548,7 @@
       </div>
     </div>
     <div class="hero-photo">
-      <img src="headshot.png" alt="Huzaif Khan" />
+      <img src="headshot.jpg" alt="Huzaif Khan" />
     </div>
   </div>
 </section>
