@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Huzaif Khan — Software Engineer & ML Researcher</title>
+  <title>Huzaif Khan Software Engineer & ML Researcher</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -30,10 +30,19 @@
     html { scroll-behavior: smooth; scrollbar-width: thin; scrollbar-color: var(--burgundy-muted) var(--beige-cream); }
     body {
       font-family: 'DM Sans', sans-serif;
-      background: var(--beige-white);
+      background: transparent;
       color: var(--text-primary);
       line-height: 1.7; overflow-x: hidden;
+      position: relative;
     }
+    /* fixed beige base sits BELOW the neural-net canvas */
+    .page-base {
+      position: fixed; inset: 0; z-index: -1;
+      background: var(--beige-white);
+    }
+    /* content sits above the fixed neural-net canvas */
+    nav, .hero, section, .experience-section, .skills-section-bg,
+    .section-divider, footer { position: relative; z-index: 1; }
     body::before {
       content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
@@ -97,8 +106,9 @@
       padding: 5rem 3rem 0; position: relative; overflow: hidden;
     }
     #hero-canvas {
-      position: absolute; top: 0; left: 0;
-      width: 100%; height: 100%; z-index: 0;
+      position: fixed; top: 0; left: 0;
+      width: 100vw; height: 100vh; z-index: 0;
+      pointer-events: none; opacity: 0.55;
     }
     .hero-inner {
       display: flex; align-items: center; justify-content: space-between;
@@ -207,6 +217,7 @@
     .page-transition.in-view .experience-item:nth-child(2) { transition-delay: 0.3s; }
     .page-transition.in-view .experience-item:nth-child(3) { transition-delay: 0.45s; }
     .page-transition.in-view .experience-item:nth-child(4) { transition-delay: 0.6s; }
+    .page-transition.in-view .experience-item:nth-child(5) { transition-delay: 0.75s; }
     .page-transition.in-view .pub-card:nth-child(1) { transition-delay: 0.1s; }
     .page-transition.in-view .pub-card:nth-child(2) { transition-delay: 0.2s; }
     .page-transition.in-view .pub-card:nth-child(3) { transition-delay: 0.3s; }
@@ -251,7 +262,7 @@
 
     /* ── EXPERIENCE ── */
     .experience-section {
-      background: linear-gradient(180deg, var(--beige-cream) 0%, var(--beige-white) 100%);
+      background: linear-gradient(180deg, rgba(250,244,234,0.82) 0%, rgba(255,253,248,0.78) 100%);
       padding: 6rem 0;
     }
     .experience-section .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 3rem; }
@@ -363,7 +374,7 @@
 
     /* ── SKILLS with 3D background ── */
     .skills-section-bg {
-      background: linear-gradient(180deg, var(--beige-white) 0%, var(--beige-cream) 50%, var(--beige-white) 100%);
+      background: linear-gradient(180deg, rgba(255,253,248,0.78) 0%, rgba(250,244,234,0.82) 50%, rgba(255,253,248,0.78) 100%);
       padding: 6rem 0; position: relative; overflow: hidden;
     }
     .skills-section-bg .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 3rem; position: relative; z-index: 1; }
@@ -503,7 +514,9 @@
 </head>
 <body>
 
+<div class="page-base"></div>
 <div class="progress-bar" id="progressBar"></div>
+<canvas id="hero-canvas"></canvas>
 <div class="cursor-glow" id="cursorGlow"></div>
 
 <!-- ── NAV — Burgundy Band ── -->
@@ -521,16 +534,16 @@
 
 <!-- ── HERO with 3D neural net + headshot ── -->
 <section class="hero">
-  <canvas id="hero-canvas"></canvas>
   <div class="hero-inner">
     <div class="hero-content">
-      <div class="hero-tag">Software Engineer · ML Researcher</div>
+      <div class="hero-tag">Software Engineer · ML & VR Researcher</div>
       <h1>Huzaif Khan<span class="hero-qual">, M.S. Computer Science</span></h1>
       <p class="hero-description">
-        I build machine learning systems that learn from sensitive data without ever
-        seeing it. Full-stack engineer and published researcher (6+ IEEE/MDPI papers)
-        working on privacy-preserving ML federated learning, homomorphic encryption,
-        and edge-resident LLM pipelines and the engineer who ships them to production.
+        I build systems that learn from sensitive data without ever seeing it and
+        immersive worlds people can learn inside. Full-stack engineer and published
+        researcher (6+ IEEE/MDPI papers) working across privacy-preserving ML,
+        edge-resident LLM pipelines, and multiplayer VR/XR learning environments,
+        and the engineer who ships them to production.
       </p>
       <div class="hero-stats">
         <div class="stat-item"><div class="stat-number" id="countPubs">0</div><div class="stat-label">Publications</div></div>
@@ -562,15 +575,28 @@
       <div class="section-line"></div>
     </div>
     <div class="experience-item">
-      <div class="exp-date">Mar 2024 — Present</div>
+      <div class="exp-date">Jan 2026 — Present</div>
       <div>
-        <div class="exp-role">Research Assistant — ML & Applied AI</div>
-        <div class="exp-company">California State University, Dominguez Hills <span class="exp-location">· Los Angeles, CA</span></div>
+        <div class="exp-role">Software Engineer — VR/XR Systems</div>
+        <div class="exp-company">California State University, Dominguez Hills <span class="exp-location">· Graduate Research Assistant · Los Angeles, CA</span></div>
+        <ul class="exp-bullets">
+          <li>Build multiplayer VR classroom applications in Unity 6 / C# (URP) for Meta Quest, enabling students to interact, collaborate, and study together in shared immersive 3D environments.</li>
+          <li>Engineered networked multi-user sessions with Unity Netcode for GameObjects (NGO) and Unity Relay handling state synchronization, connection management, and client-server authority for low-latency interaction.</li>
+          <li>Developing integration of LLM-driven AI teaching agents into live VR classrooms, wiring real-time inference into the game loop for interactive, on-demand instruction.</li>
+          <li>Own the full development lifecycle architecture, implementation, and debugging of VR input, physics, and URP shader issues — iterating on a deployed product used by students.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="experience-item">
+      <div class="exp-date">Mar 2024 — May 2026</div>
+      <div>
+        <div class="exp-role">Software Engineer — Edge AI / ML Systems</div>
+        <div class="exp-company">California State University, Dominguez Hills <span class="exp-location">· Graduate Research Assistant · Los Angeles, CA</span></div>
         <ul class="exp-bullets">
           <li>Published 6 peer-reviewed works across IEEE conferences and Sensors journal on model security, federated learning, and distributed systems.</li>
           <li>Designed privacy-preserving federated learning pipeline integrating homomorphic encryption with optimized K-means clustering, reducing false positives by 30%+.</li>
+          <li>Engineered SenseCLLM, a three-agent edge-resident PII detection framework running LLMs fully on-device via Ollama accepted at IEEE AIIoT 2026.</li>
           <li>Fine-tuned BioBERT for medical text classification across 32 cancer types with custom clinical masking to prevent label leakage.</li>
-          <li>Built Python-based observability layer monitoring federated learning model performance with PostgreSQL-backed data store.</li>
         </ul>
       </div>
     </div>
@@ -581,7 +607,7 @@
         <div class="exp-company">Capgemini Technology Services <span class="exp-location">· Bangalore, India</span></div>
         <ul class="exp-bullets">
           <li>Led end-to-end redevelopment of a mission-critical enterprise mobile app, delivering 50%+ improvements in stability and performance.</li>
-          <li>Architected client-side data orchestration with pagination, query indexing, and refactored pipelines — reducing API latency by 40%.</li>
+          <li>Architected client-side data orchestration with pagination, query indexing, and refactored pipelines reducing API latency by 40%.</li>
           <li>Designed Azure SQL triggers and scheduled diagnostics for time-series log validation and automated alerting at scale.</li>
           <li>Collaborated with UK enterprise stakeholders to translate pain points into prioritized roadmaps, shipping critical updates ahead of schedule.</li>
         </ul>
@@ -720,9 +746,17 @@
       <div class="skill-group tilt-card">
         <div class="skill-group-title">Languages</div>
         <div class="skill-items">
-          <span class="skill-item">Python</span><span class="skill-item">TypeScript</span>
-          <span class="skill-item">JavaScript</span><span class="skill-item">Java</span>
-          <span class="skill-item">C#</span><span class="skill-item">SQL</span><span class="skill-item">C</span>
+          <span class="skill-item">Python</span><span class="skill-item">C#</span>
+          <span class="skill-item">TypeScript</span><span class="skill-item">JavaScript</span>
+          <span class="skill-item">Java</span><span class="skill-item">SQL</span><span class="skill-item">C</span>
+        </div>
+      </div>
+      <div class="skill-group tilt-card">
+        <div class="skill-group-title">VR / XR &amp; Real-Time</div>
+        <div class="skill-items">
+          <span class="skill-item">Unity 6</span><span class="skill-item">URP</span>
+          <span class="skill-item">Meta Quest SDK</span><span class="skill-item">Netcode (NGO)</span>
+          <span class="skill-item">Unity Relay</span><span class="skill-item">Multiplayer</span>
         </div>
       </div>
       <div class="skill-group tilt-card">
@@ -730,6 +764,7 @@
         <div class="skill-items">
           <span class="skill-item">PyTorch</span><span class="skill-item">Transformers</span>
           <span class="skill-item">BioBERT</span><span class="skill-item">LLMs</span>
+          <span class="skill-item">AI Agents</span><span class="skill-item">Ollama</span>
           <span class="skill-item">NLP</span><span class="skill-item">Federated Learning</span>
         </div>
       </div>
@@ -750,17 +785,11 @@
         </div>
       </div>
       <div class="skill-group tilt-card">
-        <div class="skill-group-title">Tools</div>
+        <div class="skill-group-title">Tools & Domains</div>
         <div class="skill-items">
           <span class="skill-item">Git</span><span class="skill-item">PostgreSQL</span>
           <span class="skill-item">Postman</span><span class="skill-item">Linux</span>
-        </div>
-      </div>
-      <div class="skill-group tilt-card">
-        <div class="skill-group-title">Domains</div>
-        <div class="skill-items">
-          <span class="skill-item">Full-Stack</span><span class="skill-item">ML Research</span>
-          <span class="skill-item">API Design</span><span class="skill-item">Encryption</span>
+          <span class="skill-item">Encryption</span><span class="skill-item">API Design</span>
         </div>
       </div>
     </div>
