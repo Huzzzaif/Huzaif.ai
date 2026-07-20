@@ -1180,7 +1180,7 @@ const heroObs = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       animateCount(document.getElementById('countPubs'), 6, '', 0);
-      animateCount(document.getElementById('countExp'), 5, '+', 0);
+      animateCount(document.getElementById('countExp'), 4, '+', 0);
       animateCount(document.getElementById('countGPA'), 3.95, '', 2);
       heroObs.unobserve(entry.target);
     }
