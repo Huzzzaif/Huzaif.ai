@@ -365,6 +365,9 @@
     .project-desc {
       font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1.2rem;
     }
+    .project-bullets { padding-left: 1.1rem; margin: 0; }
+    .project-bullets li { margin-bottom: 0.8rem; }
+    .project-bullets li:last-child { margin-bottom: 0; }
     .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
     .project-tag {
       font-family: 'JetBrains Mono', monospace;
@@ -580,10 +583,10 @@
         <div class="exp-role">Software Engineer — VR/XR Systems</div>
         <div class="exp-company">California State University, Dominguez Hills <span class="exp-location">· Graduate Research Assistant · Los Angeles, CA</span></div>
         <ul class="exp-bullets">
-          <li>Build multiplayer VR classroom applications in Unity 6 / C# (URP) for Meta Quest, enabling students to interact, collaborate, and study together in shared immersive 3D environments.</li>
-          <li>Engineered networked multi-user sessions with Unity Netcode for GameObjects (NGO) and Unity Relay handling state synchronization, connection management, and client-server authority for low-latency interaction.</li>
-          <li>Developing integration of LLM-driven AI teaching agents into live VR classrooms, wiring real-time inference into the game loop for interactive, on-demand instruction.</li>
-          <li>Own the full development lifecycle architecture, implementation, and debugging of VR input, physics, and URP shader issues — iterating on a deployed product used by students.</li>
+          <li>Scaled a Unity 6 VR classroom from 5 to 50 concurrent Meta Quest headsets while doubling frame rate from 15 to 30 FPS by implementing grid-based culling that rendered only in-view geometry on standalone hardware.</li>
+          <li>Reduced per-client bandwidth by 88% and consolidated networked objects from more than 1,000 to approximately 38 by replacing per-object NetworkObject replication with an aggregated synchronization layer over Unity Netcode for GameObjects and Relay.</li>
+          <li>Cut time to first response from 3.6 seconds to approximately 350ms by re-streaming a multi-agent Ollama pipeline through a FastAPI server-sent events endpoint, making voice-driven AI instruction more responsive during live VR classroom sessions.</li>
+          <li>Delivered shared, interactive learning environments for Meta Quest by owning Unity/C# development, multiplayer synchronization, and debugging across VR input, physics, and URP shaders.</li>
         </ul>
       </div>
     </div>
@@ -593,10 +596,10 @@
         <div class="exp-role">Software Engineer — Edge AI / ML Systems</div>
         <div class="exp-company">California State University, Dominguez Hills <span class="exp-location">· Graduate Research Assistant · Los Angeles, CA</span></div>
         <ul class="exp-bullets">
-          <li>Conducted published research on model security, federated learning, and distributed systems across IEEE conferences and Sensors journal.</li>
-          <li>Designed an edge-assisted CKKS federated-learning framework with in-network aggregation. Simulations reported up to 46% lower communication latency and 38% lower encryption overhead versus conventional HE-FL, with less than 1.2% accuracy loss.</li>
-          <li>Engineered SenseCLLM, a three-agent edge-resident PII detection framework running LLMs fully on-device via Ollama; published in IEEE AIIoT 2026.</li>
-          <li>Built TF-IDF/Linear SVM classification across 32 cancer types, reaching 94.5% accuracy and 0.943 macro F1 on 1,905 held-out reports with clinical-term masking. Extended to BioBERT for contextual representations; independent test evaluation remains pending.</li>
+          <li>Reduced communication latency by up to 46% and encryption overhead by 38% versus conventional HE-FL in healthcare IoT simulations by combining edge-assisted CKKS encryption, SIMD parameter packing, and hop-by-hop encrypted aggregation, with less than 1.2% accuracy loss.</li>
+          <li>Evaluated routing-model convergence across 20, 40, and 60 clients using AMR-GNN, observing faster convergence with broader participation as adaptive rewards balanced routing accuracy, energy use, and stability.</li>
+          <li>Enabled aggregation of encrypted model updates by offloading cryptographic work from lightweight clients to trusted edge devices and performing homomorphic summation in the simulated network. The resulting framework was published in Sensors in 2025.</li>
+          <li>Built an edge-resident PII detection pipeline with three cooperating agents and adaptive pattern memory; the published SenseCLLM evaluation reached 0.85 F1 and reduced mean inference latency from 1,960ms at startup to 187ms after 500 samples.</li>
         </ul>
       </div>
     </div>
@@ -606,10 +609,10 @@
         <div class="exp-role">Senior Software Analyst</div>
         <div class="exp-company">Capgemini Technology Services <span class="exp-location">· Bangalore, India</span></div>
         <ul class="exp-bullets">
-          <li>Led end-to-end redevelopment of a mission-critical enterprise mobile app, delivering 50%+ improvements in stability and performance.</li>
-          <li>Improved average API response time by 64% under peak concurrent load by adding composite indexes and paginating list views.</li>
-          <li>Designed Azure SQL triggers and scheduled diagnostics for time-series log validation and automated alerting at scale.</li>
-          <li>Collaborated with UK enterprise stakeholders to translate pain points into prioritized roadmaps, shipping critical updates ahead of schedule.</li>
+          <li>Reduced end-to-end shift-start request time from 2 seconds to 180ms by adding server-side idempotency and a database uniqueness constraint, rejecting repeated submissions at the API and preventing duplicate rows at insertion.</li>
+          <li>Raised shift-record accuracy from 40% to 99% by storing each shift as a UTC timestamp paired with the worker’s time zone, supporting calculations across daylight-saving transitions and regions while quarantining suspect writes through Azure SQL triggers.</li>
+          <li>Improved average API response time by 64% under peak concurrent load by adding composite indexes to frequently used read paths and paginating list views, avoiding retrieval of full result sets for each request.</li>
+          <li>Translated UK enterprise stakeholders’ operational pain points into prioritized engineering work and delivered updates through the application’s redevelopment lifecycle.</li>
         </ul>
       </div>
     </div>
@@ -619,9 +622,9 @@
         <div class="exp-role">Full-Stack Developer Intern</div>
         <div class="exp-company">Capgemini Technology Services <span class="exp-location">· Bangalore, India</span></div>
         <ul class="exp-bullets">
-          <li>Led a team of 4 to ship a cross-platform e-commerce app in React Native with custom AES-encrypted payment API and JWT auth.</li>
-          <li>Cut page load from 6s to 0.8s as the catalog grew from 10 to 600 products through image lazy-loading, bundle code-splitting, and deferring non-critical scripts.</li>
-          <li>Built RESTful APIs in Node.js for real-time product catalog updates and frontend-backend data orchestration.</li>
+          <li>Cut page-load time from 6 seconds to 0.8 seconds while the product catalog grew from 10 to 600 items by lazy-loading below-the-fold images, splitting the application bundle, and deferring non-critical scripts.</li>
+          <li>Made checkout resilient to competing purchases by persisting cart state on the server, revalidating stock at checkout, and locking inventory rows during purchase transactions so two buyers could not allocate the same last unit.</li>
+          <li>Led a four-person team delivering an e-commerce application, implementing authenticated APIs and product-catalog updates alongside frontend development.</li>
         </ul>
       </div>
     </div>
@@ -699,10 +702,22 @@
     <div class="section-line"></div>
   </div>
   <div class="projects-grid">
+    <a href="https://github.com/Huzzzaif/datahub-steward" target="_blank" rel="noopener noreferrer" class="project-card tilt-card">
+      <div class="project-icon">🧠</div>
+      <div class="project-title">DataHub Steward</div>
+      <div class="project-desc"><ul class="project-bullets"><li>Reduced token use by 51% (571 to 281) and entity inspections by 40% (30 to 18) in the documented Groq repeat-query benchmark by persisting agent findings in DataHub and reusing them across runs.</li><li>Made lineage investigations reusable with downstream blast-radius and upstream root-cause agents that record evidence and prior findings directly in the catalog.</li><li>Integrated DataHub through GraphQL and a read/write adapter, with a FastAPI streaming interface. The hosted demo uses an in-memory catalog; live DataHub integration was validated separately.</li></ul></div>
+      <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">FastAPI</span><span class="project-tag">DataHub</span><span class="project-tag">GraphQL</span></div>
+    </a>
+    <a href="https://github.com/Huzzzaif/sensecllm_edge" target="_blank" rel="noopener noreferrer" class="project-card tilt-card">
+      <div class="project-icon">🛡️</div>
+      <div class="project-title">SenseCLLM</div>
+      <div class="project-desc"><ul class="project-bullets"><li>Reduced mean on-device inference latency 10.5×, from 1,960ms at startup to 187ms after 500 samples, by caching LLM-generated regex patterns in adaptive memory at a 0.78 hit rate.</li><li>Achieved 0.85 F1 on the ai4privacy benchmark—49% higher than Presidio—using a three-agent pipeline for PII detection, pattern learning, and output validation.</li><li>Processed text on the edge before cloud transmission using selective encryption and semantic abstraction. Published in IEEE AIIoT 2026.</li></ul></div>
+      <div class="project-tags"><span class="project-tag">Python</span><span class="project-tag">Ollama</span><span class="project-tag">Edge AI</span><span class="project-tag">Cryptography</span></div>
+    </a>
     <a href="https://github.com/Huzzzaif/nlp-cancer-prediction" target="_blank" class="project-card tilt-card">
       <div class="project-icon">🧬</div>
       <div class="project-title">NLP Cancer Prediction</div>
-      <div class="project-desc">Classifies 32 cancer types from 9,523 reports. TF-IDF/Linear SVM achieved 94.5% accuracy and 0.943 macro F1 on 1,905 held-out reports. BioBERT extends the pipeline to contextual representations; its reported score is validation performance.</div>
+      <div class="project-desc"><ul class="project-bullets"><li>Achieved 94.5% accuracy and 0.943 macro F1 across 32 cancer types on 1,905 held-out reports by combining word- and character-level TF-IDF features with Linear SVM.</li><li>Reduced diagnosis-term leakage with a 64-term clinical masking dictionary; fit vectorizers and applied SMOTE only on the training split of the 9,523-report corpus.</li><li>Extended the pipeline to BioBERT for contextual clinical-text representations. Its recorded 92.5% accuracy and 0.906 macro F1 use the checkpoint-selection split; independent test evaluation remains pending.</li></ul></div>
       <div class="project-tags"><span class="project-tag">BioBERT</span><span class="project-tag">NLP</span><span class="project-tag">PyTorch</span></div>
     </a>
     <a href="https://github.com/Huzzzaif/medical_pred_frontend" target="_blank" class="project-card tilt-card">
