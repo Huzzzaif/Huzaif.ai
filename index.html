@@ -583,7 +583,8 @@
         <div class="exp-role">Software Engineer — VR/XR Systems</div>
         <div class="exp-company">California State University, Dominguez Hills <span class="exp-location">· Graduate Research Assistant · Los Angeles, CA</span></div>
         <ul class="exp-bullets">
-          <li>Scaled a Unity 6 VR classroom from 5 to 50 concurrent Meta Quest headsets while doubling frame rate from 15 to 30 FPS by implementing grid-based culling that rendered only in-view geometry on standalone hardware.</li>
+          <li>Scaled Unity VR classroom from 5 to 50 concurrent Meta Quest headsets and increased frame rate from 30 to
+72 FPS by implementing grid-based culling on standalone hardware.</li>
           <li>Reduced per-client bandwidth by 88% and consolidated networked objects from more than 1,000 to approximately 38 by replacing per-object NetworkObject replication with an aggregated synchronization layer over Unity Netcode for GameObjects and Relay.</li>
           <li>Cut time to first response from 3.6 seconds to approximately 350ms by re-streaming a multi-agent Ollama pipeline through a FastAPI server-sent events endpoint, making voice-driven AI instruction more responsive during live VR classroom sessions.</li>
           <li>Delivered shared, interactive learning environments for Meta Quest by owning Unity/C# development, multiplayer synchronization, and debugging across VR input, physics, and URP shaders.</li>
@@ -609,10 +610,13 @@
         <div class="exp-role">Senior Software Analyst</div>
         <div class="exp-company">Capgemini Technology Services <span class="exp-location">· Bangalore, India</span></div>
         <ul class="exp-bullets">
-          <li>Reduced end-to-end shift-start request time from 2 seconds to 180ms by adding server-side idempotency and a database uniqueness constraint, rejecting repeated submissions at the API and preventing duplicate rows at insertion.</li>
+          <li>Led the rebuild of a cross-platform Xamarin (C#) time-tracking app for an enterprise client with 3,000+ daily
+users, replacing separate Android and iOS flows with a shared MVVM navigation layer.</li>
           <li>Raised shift-record accuracy from 40% to 99% by storing each shift as a UTC timestamp paired with the worker’s time zone, supporting calculations across daylight-saving transitions and regions while quarantining suspect writes through Azure SQL triggers.</li>
-          <li>Improved average API response time by 64% under peak concurrent load by adding composite indexes to frequently used read paths and paginating list views, avoiding retrieval of full result sets for each request.</li>
-          <li>Translated UK enterprise stakeholders’ operational pain points into prioritized engineering work and delivered updates through the application’s redevelopment lifecycle.</li>
+          <li>Reduced clock-in response time by 91% (2s to 180ms) via in-memory caching, async service processing,
+batched database writes, and fewer client retries.</li>
+          <li>Improved average API response time by 64% under peak concurrent load by adding composite indexes to the
+hot read paths and paginating list views so full result sets weren't loaded per request.</li>
         </ul>
       </div>
     </div>
