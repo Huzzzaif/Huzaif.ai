@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#faf9f6">
-  <title>Huzaif Khan — Software Engineer &amp; AI Engineer</title>
-  <meta name="description" content="Software and AI engineer building on-device intelligence, useful agents, and production systems. Explore SenseCLLM and selected work.">
-  <meta property="og:title" content="Huzaif Khan — Software Engineer &amp; AI Engineer">
-  <meta property="og:description" content="Software and AI engineer building on-device intelligence, useful agents, and production systems. Explore SenseCLLM and selected work.">
+  <title>DataHub Steward — Huzaif Khan</title>
+  <meta name="description" content="AI agents that investigate data lineage and persist findings in DataHub for the next investigation.">
+  <meta property="og:title" content="DataHub Steward — Huzaif Khan">
+  <meta property="og:description" content="AI agents that investigate data lineage and persist findings in DataHub for the next investigation.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://huzzzaif.github.io/Huzaif.ai/headshot.png">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -31,19 +31,11 @@
     </div>
   </aside>
   <main id="main" tabindex="-1">
-    <header class="intro">
-      <p class="eyebrow">SOFTWARE ENGINEERING / APPLIED AI</p>
-      <h1>I build AI applications<br>and the systems behind them.</h1>
-      <p>I’m Huzaif, an engineer with 4+ years across industry and research. I’ve worked on enterprise software serving 3,000+ daily users, on-device AI, and agents that turn data into answers.</p>
-      <a class="inline-link" href="about.html">A little more about me <span aria-hidden="true">→</span></a>
-    </header>
-    <section class="selected-work" aria-labelledby="work-title">
-      <div class="section-label"><h2 id="work-title">Selected work</h2><span>2025 — 2026</span></div>
-      <a class="work-row" href="sensecllm.html"><div class="work-art sense-art" aria-hidden="true"><span class="art-caption">SENSECLLM</span><div class="redacted-line"><span></span><b></b><span></span></div><div class="redacted-line"><b></b><span></span><b></b></div><div class="redacted-line"><span></span><span></span></div><span class="art-foot">Private, by design.</span></div><div class="work-summary"><div class="work-title"><h3>SenseCLLM</h3><span aria-hidden="true">↗</span></div><p>Protecting sensitive information before it reaches a cloud AI model.</p><span class="work-result">10.5× faster on-device detection</span><span class="work-type">Edge AI · Published at IEEE AIIoT 2026</span></div></a>
-      <a class="work-row" href="steward.html"><div class="work-art steward-art" aria-hidden="true"><span class="art-caption">DATAHUB STEWARD</span><div class="mini-lineage"><span>data</span><i>→</i><span>model</span></div><div class="memory-line">↳ finding saved</div><span class="art-foot">Investigate. Remember. Reuse.</span></div><div class="work-summary"><div class="work-title"><h3>DataHub Steward</h3><span aria-hidden="true">↗</span></div><p>Agents that investigate data dependencies and remember what they learn.</p><span class="work-result">51% fewer tokens on a repeat query</span><span class="work-type">AI agents · Data infrastructure</span></div></a>
-      <a class="work-row" href="medical-nlp.html"><div class="work-art nlp-art" aria-hidden="true"><span class="art-caption">MEDICAL NLP</span><strong>32<span>cancer types</span></strong><span class="art-foot">Clinical text → classification</span></div><div class="work-summary"><div class="work-title"><h3>Medical Text Classification</h3><span aria-hidden="true">↗</span></div><p>Finding useful structure in unstructured pathology reports.</p><span class="work-result">94.5% accuracy on held-out reports</span><span class="work-type">Applied ML · Natural language processing</span></div></a>
-    </section>
-    <section class="experience-brief" aria-labelledby="experience-title"><div class="section-label"><h2 id="experience-title">Beyond the projects</h2></div><p>At <strong>Capgemini</strong>, I helped rebuild an enterprise application used by 3,000+ people daily. At <strong>CSUDH</strong>, my work spans edge AI, privacy-preserving systems, and real-time applications.</p><a class="inline-link" href="about.html#experience">Explore my experience <span aria-hidden="true">→</span></a></section>
+    <a class="back-link" href="index.html">← Selected work</a>
+    <header class="project-intro"><p class="eyebrow">AI AGENTS / DATA INFRASTRUCTURE · 2026</p><h1>DataHub Steward</h1><p>An investigation that leaves<br>the next one a little smarter.</p><div class="project-actions"><a href="https://huzzzaif.github.io/datahub-steward/" target="_blank" rel="noopener">Try the demo ↗</a><a href="https://github.com/Huzzzaif/datahub-steward" target="_blank" rel="noopener">Source code ↗</a></div></header>
+    <figure class="steward-figure"><span class="figure-label">A simplified dependency path</span><div class="dependency-path"><span>Payments</span><b>→</b><span>Orders</span><b>→</b><span>Features</span><b>→</b><span>Model</span></div><figcaption>A small upstream change can affect a downstream model. Steward traces the relationships and preserves its findings.</figcaption></figure>
+    <div class="project-prose"><section><h2>The problem</h2><p>A column changes upstream. A model behaves differently downstream. Understanding the connection requires tracing dependencies, and the next person may repeat the same investigation.</p></section><section><h2>What I built</h2><p>Two agents with complementary jobs: one investigates the downstream impact of a proposed change, while the other traces upstream to identify possible root causes. Both read existing findings and write new evidence back into DataHub.</p></section><section><h2>The engineering decision</h2><p>Keep findings in the catalog itself, where another person or agent can reuse them. A shared adapter separates catalog access from agent logic, with GraphQL integration and a FastAPI streaming interface.</p></section><section><h2>The result</h2><div class="result-pair"><div><strong>571 → 281</strong><span>Tokens on a repeat query</span></div><div><strong>30 → 18</strong><span>Entities inspected</span></div></div><p class="measurement-note">The documented historical Groq benchmark used 51% fewer tokens and 40% fewer inspections on a repeated query. Results depend on the model, question, catalog state, and code version. The hosted demo uses an in-memory catalog; live DataHub integration was validated separately.</p></section><section><h2>Under the hood</h2><p>Python · FastAPI · DataHub · GraphQL · Persistent agent findings</p></section></div>
+    <div class="next-project"><span>Next project</span><a href="medical-nlp.html">Medical Text Classification →</a></div>
 
     <footer><span>Huzaif Khan · <span id="year">2026</span></span><a href="mailto:huzaiffkhhan@gmail.com">Let’s talk <span aria-hidden="true">↗</span></a></footer>
   </main>

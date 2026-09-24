@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#faf9f6">
-  <title>Huzaif Khan — Software Engineer &amp; AI Engineer</title>
-  <meta name="description" content="Software and AI engineer building on-device intelligence, useful agents, and production systems. Explore SenseCLLM and selected work.">
-  <meta property="og:title" content="Huzaif Khan — Software Engineer &amp; AI Engineer">
-  <meta property="og:description" content="Software and AI engineer building on-device intelligence, useful agents, and production systems. Explore SenseCLLM and selected work.">
+  <title>Medical Text Classification — Huzaif Khan</title>
+  <meta name="description" content="Classifying 32 cancer types from pathology reports with TF-IDF and Linear SVM, extended to BioBERT.">
+  <meta property="og:title" content="Medical Text Classification — Huzaif Khan">
+  <meta property="og:description" content="Classifying 32 cancer types from pathology reports with TF-IDF and Linear SVM, extended to BioBERT.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://huzzzaif.github.io/Huzaif.ai/headshot.png">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -31,19 +31,11 @@
     </div>
   </aside>
   <main id="main" tabindex="-1">
-    <header class="intro">
-      <p class="eyebrow">SOFTWARE ENGINEERING / APPLIED AI</p>
-      <h1>I build AI applications<br>and the systems behind them.</h1>
-      <p>I’m Huzaif, an engineer with 4+ years across industry and research. I’ve worked on enterprise software serving 3,000+ daily users, on-device AI, and agents that turn data into answers.</p>
-      <a class="inline-link" href="about.html">A little more about me <span aria-hidden="true">→</span></a>
-    </header>
-    <section class="selected-work" aria-labelledby="work-title">
-      <div class="section-label"><h2 id="work-title">Selected work</h2><span>2025 — 2026</span></div>
-      <a class="work-row" href="sensecllm.html"><div class="work-art sense-art" aria-hidden="true"><span class="art-caption">SENSECLLM</span><div class="redacted-line"><span></span><b></b><span></span></div><div class="redacted-line"><b></b><span></span><b></b></div><div class="redacted-line"><span></span><span></span></div><span class="art-foot">Private, by design.</span></div><div class="work-summary"><div class="work-title"><h3>SenseCLLM</h3><span aria-hidden="true">↗</span></div><p>Protecting sensitive information before it reaches a cloud AI model.</p><span class="work-result">10.5× faster on-device detection</span><span class="work-type">Edge AI · Published at IEEE AIIoT 2026</span></div></a>
-      <a class="work-row" href="steward.html"><div class="work-art steward-art" aria-hidden="true"><span class="art-caption">DATAHUB STEWARD</span><div class="mini-lineage"><span>data</span><i>→</i><span>model</span></div><div class="memory-line">↳ finding saved</div><span class="art-foot">Investigate. Remember. Reuse.</span></div><div class="work-summary"><div class="work-title"><h3>DataHub Steward</h3><span aria-hidden="true">↗</span></div><p>Agents that investigate data dependencies and remember what they learn.</p><span class="work-result">51% fewer tokens on a repeat query</span><span class="work-type">AI agents · Data infrastructure</span></div></a>
-      <a class="work-row" href="medical-nlp.html"><div class="work-art nlp-art" aria-hidden="true"><span class="art-caption">MEDICAL NLP</span><strong>32<span>cancer types</span></strong><span class="art-foot">Clinical text → classification</span></div><div class="work-summary"><div class="work-title"><h3>Medical Text Classification</h3><span aria-hidden="true">↗</span></div><p>Finding useful structure in unstructured pathology reports.</p><span class="work-result">94.5% accuracy on held-out reports</span><span class="work-type">Applied ML · Natural language processing</span></div></a>
-    </section>
-    <section class="experience-brief" aria-labelledby="experience-title"><div class="section-label"><h2 id="experience-title">Beyond the projects</h2></div><p>At <strong>Capgemini</strong>, I helped rebuild an enterprise application used by 3,000+ people daily. At <strong>CSUDH</strong>, my work spans edge AI, privacy-preserving systems, and real-time applications.</p><a class="inline-link" href="about.html#experience">Explore my experience <span aria-hidden="true">→</span></a></section>
+    <a class="back-link" href="index.html">← Selected work</a>
+    <header class="project-intro"><p class="eyebrow">APPLIED ML / NATURAL LANGUAGE · 2025</p><h1>Medical Text<br>Classification</h1><p>Finding structure<br>in clinical language.</p><div class="project-actions"><a href="https://github.com/Huzzzaif/nlp-cancer-prediction" target="_blank" rel="noopener">Code &amp; evaluation results ↗</a></div></header>
+    <figure class="nlp-figure"><div><strong>32</strong><span>cancer types</span></div><div><strong>1,905</strong><span>held-out reports</span></div><figcaption>TF-IDF / Linear SVM evaluation</figcaption></figure>
+    <div class="project-prose"><section><h2>The problem</h2><p>Pathology reports contain valuable information in unstructured text. Classifying cancer types requires useful representations of clinical language and an evaluation that avoids misleading shortcuts.</p></section><section><h2>What I built</h2><p>A text-classification pipeline combining word- and character-level TF-IDF features with a Linear SVM. Clinical-term masking reduces direct diagnosis cues. I also extended the work to BioBERT for contextual representations.</p></section><section><h2>The engineering decision</h2><p>Keep evaluation separate from training. Split the reports before fitting vectorizers, and apply resampling only on the training data. Report the held-out SVM results separately from the BioBERT extension.</p></section><section><h2>The result</h2><div class="result-pair"><div><strong>94.5%</strong><span>Held-out accuracy</span></div><div><strong>0.943</strong><span>Macro F1 across 32 classes</span></div></div><p class="measurement-note">Results above belong to TF-IDF / Linear SVM on 1,905 held-out reports. BioBERT’s independent test evaluation remains pending.</p></section><section><h2>Under the hood</h2><p>Python · Scikit-learn · TF-IDF · Linear SVM · Clinical-term masking · BioBERT</p></section></div>
+    <div class="next-project"><span>Back to the collection</span><a href="index.html">Selected work →</a></div>
 
     <footer><span>Huzaif Khan · <span id="year">2026</span></span><a href="mailto:huzaiffkhhan@gmail.com">Let’s talk <span aria-hidden="true">↗</span></a></footer>
   </main>
