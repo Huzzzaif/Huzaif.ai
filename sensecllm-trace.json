@@ -1,0 +1,53 @@
+{
+  "recorded_on": "2026-09-24",
+  "source_revision": "2e4eeea8128c9a48b221aad84f4e4497a71db3ce",
+  "repository": "https://github.com/Huzzzaif/sensecllm_edge",
+  "scope": "Recorded execution of Agent2PatternMasker.process with seeded pattern memory and an empty detector-span list. Detector, LLM pattern generation, and critic were not run. This is not an end-to-end evaluation or a benchmark.",
+  "data": "Synthetic example.com/example.org addresses and reserved 555-01xx phone numbers. No real personal data.",
+  "examples": [
+    {
+      "label": "Example 1",
+      "input": "Please email alex@example.com or call 202-555-0142 about the appointment.",
+      "matches": [
+        {
+          "type": "PHONE",
+          "span": "202-555-0142",
+          "pattern": "PHONE_us_dashes",
+          "action": "encrypt"
+        },
+        {
+          "type": "EMAIL",
+          "span": "alex@example.com",
+          "pattern": "EMAIL_standard",
+          "action": "encrypt"
+        }
+      ],
+      "output": "Please email <<ENC:85aUngTkIsM:ENC>> or call <<ENC:6kBVKOJL4OY:ENC>> about the appointment.",
+      "cache_hits": 2,
+      "cache_misses": 0,
+      "round_trip_verified": true
+    },
+    {
+      "label": "Example 2",
+      "input": "Please email sam@example.org or call 202-555-0186 about the appointment.",
+      "matches": [
+        {
+          "type": "PHONE",
+          "span": "202-555-0186",
+          "pattern": "PHONE_us_dashes",
+          "action": "encrypt"
+        },
+        {
+          "type": "EMAIL",
+          "span": "sam@example.org",
+          "pattern": "EMAIL_standard",
+          "action": "encrypt"
+        }
+      ],
+      "output": "Please email <<ENC:zynNWs5oJgM:ENC>> or call <<ENC:ePzVOs3nE9M:ENC>> about the appointment.",
+      "cache_hits": 2,
+      "cache_misses": 0,
+      "round_trip_verified": true
+    }
+  ]
+}

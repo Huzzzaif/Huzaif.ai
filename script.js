@@ -116,18 +116,35 @@ document.querySelector('#guide-form').addEventListener('submit', event => {
   guideInput.value = '';
 });
 
-const privacyToggle = document.querySelector('#privacy-toggle');
-if (privacyToggle) {
-  privacyToggle.hidden = false;
-  privacyToggle.addEventListener('click', () => {
-    const protectedText = privacyToggle.getAttribute('aria-pressed') !== 'true';
-    privacyToggle.setAttribute('aria-pressed', String(protectedText));
-    document.querySelector('#sample-name').textContent = protectedText ? '[PERSON]' : 'Alex Morgan';
-    document.querySelector('#sample-email').textContent = protectedText ? '[EMAIL]' : 'alex@example.com';
-    document.querySelector('.demo-sentence').classList.toggle('protected', protectedText);
-    document.querySelector('#demo-status').textContent = protectedText ? 'Illustrative protected output' : 'Synthetic text · no real personal data';
-    privacyToggle.textContent = protectedText ? 'Show original text ↶' : 'Show protected text →';
-  });
+const traceData = document.querySelector('#sense-trace');
+if (traceData) {
+  const trace = JSON.parse(traceData.textContent);
+  let exampleIndex = 0;
+  let step = 'input';
+  const content = document.querySelector('#trace-content');
+  const buttons = document.querySelectorAll('[data-trace-step]');
+  function renderTrace() {
+    const sample = trace.examples[exampleIndex];
+    content.replaceChildren();
+    buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.traceStep === step)));
+    content.append(element('p', 'trace-note', `${sample.label} · synthetic data`));
+    if (step === 'matches') {
+      sample.matches.forEach(match => {
+        const row = element('div', 'trace-match');
+        row.append(element('span', '', match.type), element('strong', '', match.span), element('small', '', `Cached pattern: ${match.pattern}`));
+        content.append(row);
+      });
+      content.append(element('p', 'trace-note', `${sample.cache_hits} cache hits · ${sample.cache_misses} misses · no LLM called in this run`));
+    } else {
+      content.append(element('p', step === 'output' ? 'trace-output' : 'trace-text', sample[step]));
+      content.append(element('p', 'trace-note', step === 'output' ? 'Sensitive spans replaced with encryption references. Original text successfully recovered during the recorded check.' : 'An email address and a phone number enter the pattern-cache component.'));
+    }
+    document.querySelector('#trace-example').textContent = `Try example ${exampleIndex === 0 ? 2 : 1} ↻`;
+  }
+  buttons.forEach(button => button.addEventListener('click', () => { step = button.dataset.traceStep; renderTrace(); }));
+  document.querySelector('#trace-example').addEventListener('click', () => { exampleIndex = (exampleIndex + 1) % trace.examples.length; renderTrace(); });
+  document.querySelector('.trace-controls').hidden = false;
+  renderTrace();
 }
 
 document.querySelector('#year').textContent = String(new Date().getFullYear());
