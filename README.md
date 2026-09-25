@@ -39,4 +39,4 @@ The SenseCLLM walkthrough displays two actual recorded component executions, sto
 
 ## Deployment
 
-The existing GitHub Pages site publishes from the root of `main`. The current redesign is a local preview until explicitly published. Google Fonts supplies the optional web font; a system-font fallback is provided.
+GitHub Pages publishes the site from the root of `main` at https://huzzzaif.github.io/Huzaif.ai/. Pushing to `main` updates the live site within a minute or two; there is no build step. Google Fonts supplies the optional web font; a system-font fallback is provided.
