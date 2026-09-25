@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#faf9f6">
+  <meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#151413" media="(prefers-color-scheme: dark)">
   <title>Huzaif Khan — Software Engineer &amp; AI Engineer</title>
   <meta name="description" content="Software and AI engineer building on-device intelligence, useful agents, and production systems. Explore SenseCLLM and selected work.">
   <meta property="og:title" content="Huzaif Khan — Software Engineer &amp; AI Engineer">
@@ -22,9 +22,10 @@
 <a href="#main" class="skip-link">Skip to content</a>
 <div class="site-shell">
   <aside class="sidebar" aria-label="About Huzaif and navigation">
-    <a href="index.html" class="identity"><img src="headshot.png" width="64" height="64" alt="Huzaif Khan"><span><strong>Huzaif Khan<span class="name-period">.</span></strong><span class="role">Software &amp; AI Engineer</span></span></a>
+    <a href="index.html" class="identity"><img src="img/headshot.jpg" width="64" height="64" alt="Huzaif Khan"><span><strong>Huzaif Khan<span class="name-period">.</span></strong><span class="role">Software &amp; AI Engineer</span></span></a>
     <p class="sidebar-intro">Building useful software.<br>Based in Los Angeles.</p>
     <nav aria-label="Main navigation"><a href="index.html" aria-current="page">Selected work</a><a href="about.html">Background</a><a href="https://scholar.google.com/citations?user=M0gjnP4AAAAJ" target="_blank" rel="noopener">Research <span aria-hidden="true">↗</span></a><a href="huzaif-khan-resume.pdf" target="_blank" rel="noopener">Resume <span aria-hidden="true">↗</span></a></nav>
+    <div class="sidebar-now"><p class="now-label"><i aria-hidden="true"></i>Now</p><img src="logos/csudh.svg" alt="California State University, Dominguez Hills" class="now-logo" width="130" height="24"><p>Graduate Research Assistant, scaling a VR classroom to 50 headsets with streaming AI.</p><dl class="glance"><div><dt>4+</dt><dd>years shipping</dd></div><div><dt>3.95</dt><dd>M.S. GPA</dd></div></dl></div>
     <div class="sidebar-bottom">
       <button class="guide-launch" type="button" data-open-guide hidden><span class="guide-mark" aria-hidden="true">✳</span><span>Explore with a guide<small>Questions → relevant work</small></span><span aria-hidden="true">↗</span></button>
       <div class="social-links"><a href="https://github.com/Huzzzaif" target="_blank" rel="noopener">GitHub</a><a href="https://linkedin.com/in/huzaif-khan" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:huzaiffkhhan@gmail.com">Email</a></div>
@@ -33,19 +34,36 @@
   <main id="main" tabindex="-1">
     <header class="intro">
       <p class="eyebrow">SOFTWARE ENGINEERING / APPLIED AI</p>
-      <h1>I build AI applications<br>and the systems behind them.</h1>
-      <p>I’m Huzaif, a software and AI engineer with 4+ years across industry and research. At Capgemini, I led a time-tracking app rebuild serving 3,000+ daily users. Now I build on-device AI and agents that make useful work repeatable.</p>
-      <a class="inline-link" href="about.html">A little more about me <span aria-hidden="true">→</span></a>
+      <h1>I build AI that’s private, fast,<br>and remembers what it learns.</h1>
+      <p>I’m Huzaif, a software and AI engineer in Los Angeles with 4+ years across industry and research. I keep sensitive data on the device, give agents a memory they can reuse, and chase latency out of production apps.</p>
+      <p class="availability"><i aria-hidden="true"></i>Open to Software Engineer (SDE) roles</p>
+      <div class="hero-actions"><a class="button-primary" href="mailto:huzaiffkhhan@gmail.com?subject=Software%20Engineer%20role">Email me <span aria-hidden="true">↗</span></a><a class="button-quiet" href="huzaif-khan-resume.pdf" target="_blank" rel="noopener">Resume <span aria-hidden="true">↗</span></a><a class="inline-link" href="about.html">More about me <span aria-hidden="true">→</span></a></div>
     </header>
+    <section class="impact" aria-label="Impact at a glance">
+      <div class="impact-item"><strong><span data-count="10.5" data-decimals="1">10.5</span>×</strong><span>faster PII detection, on the device</span><small>SenseCLLM</small></div>
+      <div class="impact-item"><strong><span data-count="3000" data-format="comma">3,000</span>+</strong><span>daily users on the app rebuild I led</span><small>Capgemini</small></div>
+      <div class="impact-item"><strong><span data-count="51">51</span>%</strong><span>fewer tokens when agents reuse findings</span><small>DataHub Steward</small></div>
+      <div class="impact-item"><strong><span data-count="6">6</span>+</strong><span>published papers in edge AI &amp; ML</span><small>Including IEEE AIIoT 2026</small></div>
+    </section>
+    <section class="org-strip" aria-labelledby="org-title"><h2 id="org-title">Built and published with</h2><ul><li><img src="logos/capgemini.svg" alt="Capgemini" width="120" height="28"><span>Industry · 2021–2023</span></li><li><img src="logos/csudh.svg" alt="California State University, Dominguez Hills" width="162" height="30"><span>M.S. &amp; research · 2023–now</span></li><li><img src="logos/ieee.svg" alt="IEEE" width="102" height="30"><span>AIIoT 2026 publication</span></li></ul></section>
     <section class="selected-work" aria-labelledby="work-title">
       <div class="section-label"><h2 id="work-title">Selected work</h2><span>2025 — 2026</span></div>
-      <a class="work-row" href="sensecllm.html"><div class="work-art sense-art" aria-hidden="true"><span class="art-caption">SENSECLLM</span><div class="redacted-line"><span></span><b></b><span></span></div><div class="redacted-line"><b></b><span></span><b></b></div><div class="redacted-line"><span></span><span></span></div><span class="art-foot">Private, by design.</span></div><div class="work-summary"><div class="work-title"><h3>SenseCLLM</h3><span aria-hidden="true">↗</span></div><p>Protecting sensitive information before it reaches a cloud AI model.</p><span class="work-result">10.5× faster on-device detection</span><span class="work-type">Edge AI · Published at IEEE AIIoT 2026</span></div></a>
-      <a class="work-row" href="steward.html"><div class="work-art steward-art" aria-hidden="true"><span class="art-caption">DATAHUB STEWARD</span><div class="mini-lineage"><span>data</span><i>→</i><span>model</span></div><div class="memory-line">↳ finding saved</div><span class="art-foot">Investigate. Remember. Reuse.</span></div><div class="work-summary"><div class="work-title"><h3>DataHub Steward</h3><span aria-hidden="true">↗</span></div><p>Agents that investigate data dependencies and remember what they learn.</p><span class="work-result">51% fewer tokens on a repeat query</span><span class="work-type">AI agents · Data infrastructure</span></div></a>
-      <a class="work-row" href="medical-nlp.html"><div class="work-art nlp-art" aria-hidden="true"><span class="art-caption">MEDICAL NLP</span><strong>32<span>cancer types</span></strong><span class="art-foot">Clinical text → classification</span></div><div class="work-summary"><div class="work-title"><h3>Medical Text Classification</h3><span aria-hidden="true">↗</span></div><p>Finding useful structure in unstructured pathology reports.</p><span class="work-result">94.5% accuracy on held-out reports</span><span class="work-type">Applied ML · Natural language processing</span></div></a>
+      <a class="work-row" href="sensecllm.html"><div class="work-art sense-art" aria-hidden="true"><span class="art-caption">Recorded run</span><p class="sense-snippet"><mark>alex@example.com</mark></p><p class="sense-arrow">↓ on device</p><p class="sense-snippet enc"><code>«ENC:85aU…»</code></p></div><div class="work-summary"><div class="work-title"><h3>SenseCLLM</h3><span aria-hidden="true">↗</span></div><p>Protecting sensitive information before it reaches a cloud AI model.</p><span class="work-type">Edge AI · Published at IEEE AIIoT 2026</span></div><div class="work-metric"><strong>+49%</strong><span>F1 vs. Presidio</span></div></a>
+      <a class="work-row" href="steward.html"><div class="work-art shot-art" aria-hidden="true"><img src="img/steward-demo.jpg" alt="" width="160" height="139" loading="lazy"><span class="shot-tag">Live demo</span></div><div class="work-summary"><div class="work-title"><h3>DataHub Steward</h3><span aria-hidden="true">↗</span></div><p>Agents that investigate data dependencies and remember what they learn.</p><span class="work-type">AI agents · Data infrastructure</span></div><div class="work-metric"><strong>40%</strong><span>fewer entities inspected</span></div></a>
+      <a class="work-row" href="medical-nlp.html"><div class="work-art nlp-art" aria-hidden="true"><span class="art-caption">F1 by cancer type</span><div class="f1-mini"><i style="--f:0.90"></i><i style="--f:0.94"></i><i style="--f:1.00"></i><i style="--f:0.89"></i><i style="--f:0.41"></i><i style="--f:0.82"></i><i style="--f:1.00"></i><i style="--f:0.76"></i><i style="--f:0.90"></i><i style="--f:1.00"></i><i style="--f:0.48"></i><i style="--f:0.86"></i><i style="--f:0.84"></i><i style="--f:0.91"></i><i style="--f:0.93"></i><i style="--f:0.11"></i><i style="--f:0.09"></i><i style="--f:1.00"></i><i style="--f:0.84"></i><i style="--f:0.91"></i><i style="--f:0.86"></i><i style="--f:0.98"></i><i style="--f:0.60"></i><i style="--f:0.73"></i><i style="--f:0.91"></i><i style="--f:0.88"></i><i style="--f:1.00"></i><i style="--f:1.00"></i><i style="--f:1.00"></i><i style="--f:0.87"></i><i style="--f:0.47"></i><i style="--f:1.00"></i></div><span class="art-foot">Lung pair lowest</span></div><div class="work-summary"><div class="work-title"><h3>Medical Text Classification</h3><span aria-hidden="true">↗</span></div><p>Finding useful structure in unstructured pathology reports.</p><span class="work-type">Applied ML · Natural language processing</span></div><div class="work-metric"><strong>94.5%</strong><span>held-out accuracy</span></div></a>
     </section>
-    <section class="experience-brief" aria-labelledby="experience-title"><div class="section-label"><h2 id="experience-title">Built for everyday use</h2></div><p>At <strong>Capgemini</strong>, I brought clock-in response time from 2 seconds to 180 milliseconds through caching and asynchronous batching. I also improved average API response time by 64% under peak load with indexing and pagination. That same attention to latency carries into my AI work.</p><a class="inline-link" href="about.html#experience">Explore my experience <span aria-hidden="true">→</span></a></section>
+    <section class="latency" aria-labelledby="latency-title"><div class="section-label"><h2 id="latency-title">Latency, before and after</h2><span>Same attention, every layer</span></div>
+      <p class="latency-intro">Speed is a feature people feel. The same habit runs through enterprise apps, on-device AI, and real-time VR: find the slow path, then cache, batch, or stream it.</p>
+      <ol class="latency-chart">
+        <li style="--after:9%"><div class="lat-label"><strong>Clock-in</strong><span>Capgemini · enterprise app</span></div><div class="lat-bars"><i class="before"><b>2 s</b></i><i class="after"><b>180 ms</b></i></div><em>−91%</em></li>
+        <li style="--after:13.3%"><div class="lat-label"><strong>Page load</strong><span>Capgemini · e-commerce</span></div><div class="lat-bars"><i class="before"><b>6 s</b></i><i class="after"><b>0.8 s</b></i></div><em>−87%</em></li>
+        <li style="--after:9.5%"><div class="lat-label"><strong>PII detection</strong><span>SenseCLLM · on-device</span></div><div class="lat-bars"><i class="before"><b>1,960 ms</b></i><i class="after"><b>187 ms</b></i></div><em>−90%</em></li>
+        <li style="--after:9.7%"><div class="lat-label"><strong>AI first response</strong><span>CSUDH · VR classroom</span></div><div class="lat-bars"><i class="before"><b>3.6 s</b></i><i class="after"><b>~350 ms</b></i></div><em>−90%</em></li>
+      </ol>
+      <p class="latency-note">Each bar compares a before and after measurement for that system. Bars are scaled per row.</p>
+      <a class="inline-link" href="about.html#experience">Explore my experience <span aria-hidden="true">→</span></a></section>
 
-    <footer><span>Huzaif Khan · <span id="year">2026</span></span><a href="mailto:huzaiffkhhan@gmail.com">Let’s talk <span aria-hidden="true">↗</span></a></footer>
+    <footer><span>Huzaif Khan · <span id="year">2026</span></span><a href="mailto:huzaiffkhhan@gmail.com?subject=Software%20Engineer%20role">Hiring an SDE? Let’s talk <span aria-hidden="true">↗</span></a></footer>
   </main>
 </div>
 <dialog id="guide" aria-labelledby="guide-title" aria-describedby="guide-description">

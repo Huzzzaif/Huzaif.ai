@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#faf9f6">
+  <meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#151413" media="(prefers-color-scheme: dark)">
   <title>DataHub Steward — Huzaif Khan</title>
   <meta name="description" content="AI agents that investigate data lineage and persist findings in DataHub for the next investigation.">
   <meta property="og:title" content="DataHub Steward — Huzaif Khan">
@@ -22,9 +22,10 @@
 <a href="#main" class="skip-link">Skip to content</a>
 <div class="site-shell">
   <aside class="sidebar" aria-label="About Huzaif and navigation">
-    <a href="index.html" class="identity"><img src="headshot.png" width="64" height="64" alt="Huzaif Khan"><span><strong>Huzaif Khan<span class="name-period">.</span></strong><span class="role">Software &amp; AI Engineer</span></span></a>
+    <a href="index.html" class="identity"><img src="img/headshot.jpg" width="64" height="64" alt="Huzaif Khan"><span><strong>Huzaif Khan<span class="name-period">.</span></strong><span class="role">Software &amp; AI Engineer</span></span></a>
     <p class="sidebar-intro">Building useful software.<br>Based in Los Angeles.</p>
     <nav aria-label="Main navigation"><a href="index.html" aria-current="location">Selected work</a><a href="about.html">Background</a><a href="https://scholar.google.com/citations?user=M0gjnP4AAAAJ" target="_blank" rel="noopener">Research <span aria-hidden="true">↗</span></a><a href="huzaif-khan-resume.pdf" target="_blank" rel="noopener">Resume <span aria-hidden="true">↗</span></a></nav>
+    <div class="sidebar-now"><p class="now-label"><i aria-hidden="true"></i>Now</p><img src="logos/csudh.svg" alt="California State University, Dominguez Hills" class="now-logo" width="130" height="24"><p>Graduate Research Assistant, scaling a VR classroom to 50 headsets with streaming AI.</p><dl class="glance"><div><dt>4+</dt><dd>years shipping</dd></div><div><dt>3.95</dt><dd>M.S. GPA</dd></div></dl></div>
     <div class="sidebar-bottom">
       <button class="guide-launch" type="button" data-open-guide hidden><span class="guide-mark" aria-hidden="true">✳</span><span>Explore with a guide<small>Questions → relevant work</small></span><span aria-hidden="true">↗</span></button>
       <div class="social-links"><a href="https://github.com/Huzzzaif" target="_blank" rel="noopener">GitHub</a><a href="https://linkedin.com/in/huzaif-khan" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:huzaiffkhhan@gmail.com">Email</a></div>
@@ -33,11 +34,23 @@
   <main id="main" tabindex="-1">
     <a class="back-link" href="index.html">← Selected work</a>
     <header class="project-intro"><p class="eyebrow">AI AGENTS / DATA INFRASTRUCTURE · 2026</p><h1>DataHub Steward</h1><p>An investigation that leaves<br>the next one a little smarter.</p><div class="project-actions"><a href="https://huzzzaif.github.io/datahub-steward/" target="_blank" rel="noopener">Try the demo ↗</a><a href="https://github.com/Huzzzaif/datahub-steward" target="_blank" rel="noopener">Source code ↗</a></div></header>
-    <figure class="steward-figure"><span class="figure-label">A simplified dependency path</span><div class="dependency-path"><span>Payments</span><b>→</b><span>Orders</span><b>→</b><span>Features</span><b>→</b><span>Model</span></div><figcaption>A small upstream change can affect a downstream model. Steward traces the relationships and preserves its findings.</figcaption></figure>
-    <div class="project-prose"><section><h2>The problem</h2><p>A column changes upstream. A model behaves differently downstream. Understanding the connection requires tracing dependencies, and the next person may repeat the same investigation.</p></section><section><h2>What I built</h2><p>Two agents with complementary jobs: one investigates the downstream impact of a proposed change, while the other traces upstream to identify possible root causes. Both read existing findings and write new evidence back into DataHub.</p></section><section><h2>The engineering decision</h2><p>Keep findings in the catalog itself, where another person or agent can reuse them. A shared adapter separates catalog access from agent logic, with GraphQL integration and a FastAPI streaming interface.</p></section><section><h2>The result</h2><div class="result-pair"><div><strong>571 → 281</strong><span>Tokens on a repeat query</span></div><div><strong>30 → 18</strong><span>Entities inspected</span></div></div><p class="measurement-note">The documented historical Groq benchmark used 51% fewer tokens and 40% fewer inspections on a repeated query. Results depend on the model, question, catalog state, and code version. The hosted demo uses an in-memory catalog; live DataHub integration was validated separately.</p></section><section><h2>Under the hood</h2><p>Python · FastAPI · DataHub · GraphQL · Persistent agent findings</p></section></div>
+    <figure class="results-panel" aria-labelledby="steward-results-title">
+      <div class="rp-head"><h2 id="steward-results-title">Ask once. Ask again. Pay less.</h2><span>Groq llama-3.3-70b · historical benchmark</span></div>
+      <p class="rp-intro">The same impact question, run twice. On the repeat, agents read the finding they saved the first time.</p>
+      <ol class="latency-chart compact">
+        <li style="--after:49.2%"><div class="lat-label"><strong>Tokens</strong><span>input + output</span></div><div class="lat-bars"><i class="before"><b>571</b></i><i class="after"><b>281</b></i></div><em>−51%</em></li>
+        <li style="--after:60%"><div class="lat-label"><strong>Entities inspected</strong><span>catalog reads</span></div><div class="lat-bars"><i class="before"><b>30</b></i><i class="after"><b>18</b></i></div><em>−40%</em></li>
+        <li style="--after:42.9%"><div class="lat-label"><strong>Wall time</strong><span>end to end</span></div><div class="lat-bars"><i class="before"><b>0.7 s</b></i><i class="after"><b>0.3 s</b></i></div><em>−57%</em></li>
+      </ol>
+      <div class="rp-legend" aria-hidden="true"><span><i class="before"></i>First run</span><span><i class="after"></i>Repeat, reusing the saved finding</span></div>
+      <table class="rp-table"><caption>Other recorded runs</caption><thead><tr><th scope="col">Run</th><th scope="col">Tokens</th><th scope="col">Inspections</th><th scope="col">Wall time</th></tr></thead><tbody><tr><th scope="row">Local, Ollama llama3.1:8b</th><td>840 → 281</td><td>30 → 18</td><td>9.6 s → 1.1 s</td></tr><tr><th scope="row">Committed example</th><td>566 → 0</td><td>13 → 1</td><td>0.88 s → ~0 s</td></tr></tbody></table>
+      <figcaption>Separate recorded runs, not interchangeable measurements or guaranteed savings for every query. <a href="https://github.com/Huzzzaif/datahub-steward/tree/2c38fdb93f4e8fb2c3b800f3c13d8f70efe2c830#benchmark-context" target="_blank" rel="noopener">Benchmark context ↗</a></figcaption>
+    </figure>
+    <a class="demo-shot" href="https://huzzzaif.github.io/datahub-steward/" target="_blank" rel="noopener"><img src="img/steward-demo-wide.jpg" alt="The Steward demo: a sample company’s datasets, jobs, dashboards and models, each clickable to see what a change would break." width="1620" height="900" loading="lazy"><span>Open the live demo <b aria-hidden="true">↗</b></span></a>
+    <div class="project-prose"><section><h2>The problem</h2><p>A column changes upstream. A model behaves differently downstream. Understanding the connection requires tracing dependencies, and the next person may repeat the same investigation.</p></section><section><h2>What I built</h2><p>Two agents with complementary jobs: one investigates the downstream impact of a proposed change, while the other traces upstream to identify possible root causes. Both read existing findings and write new evidence back into DataHub.</p></section><section><h2>The engineering decision</h2><p>Keep findings in the catalog itself, where another person or agent can reuse them. A shared adapter separates catalog access from agent logic, with GraphQL integration and a FastAPI streaming interface.</p></section><section><h2>The result</h2><p class="measurement-note">Findings compound: each investigation leaves evidence the next one can reuse. Results depend on the model, question, catalog state, and code version. The hosted demo uses an in-memory catalog; live DataHub integration was validated separately.</p></section><section><h2>Under the hood</h2><p>Python · FastAPI · DataHub · GraphQL · Persistent agent findings</p></section></div>
     <div class="next-project"><span>Next project</span><a href="medical-nlp.html">Medical Text Classification →</a></div>
 
-    <footer><span>Huzaif Khan · <span id="year">2026</span></span><a href="mailto:huzaiffkhhan@gmail.com">Let’s talk <span aria-hidden="true">↗</span></a></footer>
+    <footer><span>Huzaif Khan · <span id="year">2026</span></span><a href="mailto:huzaiffkhhan@gmail.com?subject=Software%20Engineer%20role">Hiring an SDE? Let’s talk <span aria-hidden="true">↗</span></a></footer>
   </main>
 </div>
 <dialog id="guide" aria-labelledby="guide-title" aria-describedby="guide-description">

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#faf9f6">
+  <meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#151413" media="(prefers-color-scheme: dark)">
   <title>SenseCLLM — Huzaif Khan</title>
   <meta name="description" content="A three-agent edge AI system for adaptive PII detection. Explore the engineering behind 10.5× faster on-device inference.">
   <meta property="og:title" content="SenseCLLM — Huzaif Khan">
@@ -22,9 +22,10 @@
 <a href="#main" class="skip-link">Skip to content</a>
 <div class="site-shell">
   <aside class="sidebar" aria-label="About Huzaif and navigation">
-    <a href="index.html" class="identity"><img src="headshot.png" width="64" height="64" alt="Huzaif Khan"><span><strong>Huzaif Khan<span class="name-period">.</span></strong><span class="role">Software &amp; AI Engineer</span></span></a>
+    <a href="index.html" class="identity"><img src="img/headshot.jpg" width="64" height="64" alt="Huzaif Khan"><span><strong>Huzaif Khan<span class="name-period">.</span></strong><span class="role">Software &amp; AI Engineer</span></span></a>
     <p class="sidebar-intro">Building useful software.<br>Based in Los Angeles.</p>
     <nav aria-label="Main navigation"><a href="index.html" aria-current="location">Selected work</a><a href="about.html">Background</a><a href="https://scholar.google.com/citations?user=M0gjnP4AAAAJ" target="_blank" rel="noopener">Research <span aria-hidden="true">↗</span></a><a href="huzaif-khan-resume.pdf" target="_blank" rel="noopener">Resume <span aria-hidden="true">↗</span></a></nav>
+    <div class="sidebar-now"><p class="now-label"><i aria-hidden="true"></i>Now</p><img src="logos/csudh.svg" alt="California State University, Dominguez Hills" class="now-logo" width="130" height="24"><p>Graduate Research Assistant, scaling a VR classroom to 50 headsets with streaming AI.</p><dl class="glance"><div><dt>4+</dt><dd>years shipping</dd></div><div><dt>3.95</dt><dd>M.S. GPA</dd></div></dl></div>
     <div class="sidebar-bottom">
       <button class="guide-launch" type="button" data-open-guide hidden><span class="guide-mark" aria-hidden="true">✳</span><span>Explore with a guide<small>Questions → relevant work</small></span><span aria-hidden="true">↗</span></button>
       <div class="social-links"><a href="https://github.com/Huzzzaif" target="_blank" rel="noopener">GitHub</a><a href="https://linkedin.com/in/huzaif-khan" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:huzaiffkhhan@gmail.com">Email</a></div>
@@ -32,7 +33,18 @@
   </aside>
   <main id="main" tabindex="-1">
     <a class="back-link" href="index.html">← Selected work</a>
-    <header class="project-intro"><p class="eyebrow">EDGE AI / PRIVACY · 2026</p><h1>SenseCLLM</h1><p>Protecting sensitive information<br>before it reaches the cloud.</p><div class="project-actions"><a href="https://github.com/Huzzzaif/sensecllm_edge" target="_blank" rel="noopener">Source code ↗</a><a href="https://ieeexplore.ieee.org/document/11569596" target="_blank" rel="noopener">IEEE publication ↗</a><button type="button" data-question="How did SenseCLLM get 10.5 times faster?" hidden>Explain the result ✳</button></div></header>
+    <header class="project-intro"><p class="eyebrow">EDGE AI / PRIVACY · 2026</p><h1>SenseCLLM</h1><p>Protecting sensitive information<br>before it reaches the cloud.</p><div class="project-actions"><a href="https://github.com/Huzzzaif/sensecllm_edge" target="_blank" rel="noopener">Source code ↗</a><a class="pub-logo" href="https://ieeexplore.ieee.org/document/11569596" target="_blank" rel="noopener"><img src="logos/ieee.svg" alt="" width="54" height="16">AIIoT 2026 publication ↗</a><button type="button" data-question="How did SenseCLLM get 10.5 times faster?" hidden>Explain the result ✳</button></div></header>
+    <figure class="results-panel" aria-labelledby="sense-results-title">
+      <div class="rp-head"><h2 id="sense-results-title">More accurate, and faster the longer it runs.</h2><span>IEEE AIIoT 2026 · ai4privacy, 500 samples</span></div>
+      <div class="rp-grid">
+        <div class="rp-block"><p class="rp-big"><strong>0.85</strong><span>PII detection F1</span></p>
+          <ol class="hbar" aria-label="F1 score by system"><li class="is-ours" style="--v:85%"><span>SenseCLLM</span><i></i><b>0.85</b></li><li style="--v:69%"><span>PromptObfus</span><i></i><b>≈0.69</b></li><li style="--v:57%"><span>Presidio</span><i></i><b>≈0.57</b></li></ol></div>
+        <div class="rp-block"><p class="rp-big"><strong>10.5×</strong><span>lower mean latency, on device</span></p>
+          <ol class="hbar" aria-label="Mean latency at startup and after 500 samples"><li style="--v:100%"><span>Cold start</span><i></i><b>1,960 ms</b></li><li class="is-ours" style="--v:9.5%"><span>After 500 samples</span><i></i><b>187 ms</b></li></ol>
+          <div class="rp-ring"><svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="15.9155" pathLength="100"></circle><circle cx="18" cy="18" r="15.9155" pathLength="100" class="fill" style="--p:78"></circle></svg><p><strong>78%</strong><span>of inputs served from learned patterns</span></p></div></div>
+      </div>
+      <figcaption>Results as reported in the <a href="https://ieeexplore.ieee.org/document/11569596" target="_blank" rel="noopener">IEEE paper</a>. Baseline F1 values are derived from the reported relative gains: 49.0% over Presidio and 23.3% over PromptObfus. Latency compares the same system at startup and after 500 samples, not a cloud baseline.</figcaption>
+    </figure>
     <figure class="trace-demo" id="walkthrough" aria-labelledby="trace-title">
       <div class="trace-heading"><h2 id="trace-title">See what stays private.</h2><span>Recorded component run</span></div>
       <p class="trace-intro">Two familiar patterns. No new model call.</p>
@@ -45,12 +57,12 @@
       <section><h2>The problem</h2><p>When an application sends raw text to a cloud model, sensitive information can leave the device before it is checked. SenseCLLM brings detection and protection onto the edge device.</p></section>
       <section><h2>The system</h2><p>A three-agent PII detection pipeline that combines local language-model inference with adaptive pattern memory. Agents detect sensitive spans, learn patterns and protect text, then validate the output.</p><ol class="pipeline-list"><li><span>01</span><div><h3>Detect</h3><p>Identify sensitive information in incoming text.</p></div></li><li><span>02</span><div><h3>Learn &amp; protect</h3><p>Generate and cache patterns, then selectively encrypt or abstract detected information.</p></div></li><li><span>03</span><div><h3>Validate</h3><p>Check privacy leakage, fluency, and over-encryption to guide the pipeline.</p></div></li></ol></section>
       <section><h2>The engineering decision</h2><p>Repeated patterns shouldn’t require repeated model work. The system caches LLM-generated regex patterns in adaptive memory, allowing later inputs to reuse what it has learned. A cache miss still needs new pattern generation; the fast path depends on what the system has seen before.</p></section>
-      <section><h2>The result</h2><div class="result-pair"><div><strong>1,960 → 187 ms</strong><span>Mean on-device inference latency</span></div><div><strong>0.85 F1</strong><span>49% higher than Presidio</span></div></div><p class="measurement-note">The 10.5× comparison measures startup versus performance after 500 samples, with a 0.78 cache hit rate. The F1 improvement is relative. These are reported evaluation results, not a guarantee for every input.</p></section>
+      <section><h2>The result</h2><p>Detection improved and latency fell together, because every learned pattern makes the next similar input cheaper. The figures above are reported evaluation results, not a guarantee for every input.</p></section>
       <section><h2>Under the hood</h2><p>Python · Ollama · Three-agent orchestration · Adaptive pattern memory · Selective encryption</p><p>Published in the IEEE World AI IoT Congress proceedings, 2026.</p></section>
     </div>
     <div class="next-project"><span>Next project</span><a href="steward.html">DataHub Steward →</a></div>
 
-    <footer><span>Huzaif Khan · <span id="year">2026</span></span><a href="mailto:huzaiffkhhan@gmail.com">Let’s talk <span aria-hidden="true">↗</span></a></footer>
+    <footer><span>Huzaif Khan · <span id="year">2026</span></span><a href="mailto:huzaiffkhhan@gmail.com?subject=Software%20Engineer%20role">Hiring an SDE? Let’s talk <span aria-hidden="true">↗</span></a></footer>
   </main>
 </div>
 <dialog id="guide" aria-labelledby="guide-title" aria-describedby="guide-description">
