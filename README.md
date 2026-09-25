@@ -21,6 +21,13 @@ Open `http://127.0.0.1:4173/`. No build step or package installation is required
 - `script.js`: guide interactions and recorded SenseCLLM walkthrough
 - `styles.css`: responsive layout and reduced-motion support
 - `huzaif-khan-resume.pdf`: user-supplied resume, unchanged
+- `logos/`: Capgemini, CSU Dominguez Hills, and IEEE marks from Wikimedia Commons (IEEE tagline cropped). Organization logos are trademarks of their owners and appear only to identify where the work happened.
+
+`img/headshot.jpg` (256px, ~20 KB) is the displayed headshot; `headshot.png` stays for social previews. `img/steward-demo.jpg` is a screenshot of the live Steward demo. The Medical NLP per-class F1 heatmap uses `results/svm_classification_report.txt` from the project repository at commit 9641f41.
+
+Case-study results panels use figures from each project's README: SenseCLLM at commit 2e4eeea (baseline F1 values derived from the reported relative gains) and Steward's benchmark table at commit 2c38fdb. `img/steward-demo-wide.jpg` is a live-demo screenshot. Dark mode follows the visitor's system setting.
+
+The career heatmap in `script.js` (`CAREER`) is built from the resume's month ranges. Update it when a role changes.
 
 ## Guide prototype
 
