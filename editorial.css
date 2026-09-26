@@ -376,3 +376,9 @@ canvas.leather.is-ready { opacity: 1; }
 @media (max-width: 760px) { .twin-orb.is-3d { width: 88px; height: 126px; } .twin-bubble .twin-label { margin-bottom: 52px; } }
 .filmstrip { gap: 8px; top: 2%; } .filmstrip li { aspect-ratio: 16 / 10; } .meet-photos { min-height: clamp(460px, 46vw, 620px); }
 @media (max-width: 760px) { .twin-bubble .twin-label { display: none; } }
+/* "More about me" stands out in the site's blue */
+.ed-meet .pill-taupe { background: #6f8aa8; color: #fff; padding: 15px 26px; box-shadow: 0 10px 24px -10px rgb(111 138 168 / 70%); }
+.ed-meet .pill-taupe:hover { background: #5b7797; }
+.ed-meet .pill-taupe::after { content: '→'; margin-left: 4px; transition: transform .2s; }
+.ed-meet .pill-taupe:hover::after { transform: translateX(3px); }
+@media (prefers-color-scheme: dark) { .ed-meet .pill-taupe { background: #9fb3c8; color: #1b1311; } .ed-meet .pill-taupe:hover { background: #b6c7d8; } }
