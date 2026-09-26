@@ -382,3 +382,13 @@ canvas.leather.is-ready { opacity: 1; }
 .ed-meet .pill-taupe::after { content: '→'; margin-left: 4px; transition: transform .2s; }
 .ed-meet .pill-taupe:hover::after { transform: translateX(3px); }
 @media (prefers-color-scheme: dark) { .ed-meet .pill-taupe { background: #9fb3c8; color: #1b1311; } .ed-meet .pill-taupe:hover { background: #b6c7d8; } }
+/* hand-drawn arrow rocking toward "More about me" */
+.more-wrap { position: relative; display: inline-flex; align-items: center; margin-top: 14px; }
+.more-wrap .pill { margin-top: 0; }
+.nudge { position: absolute; left: calc(100% + 6px); top: -22px; width: 96px; height: 56px; overflow: visible; color: #9fb3c8;
+  transform-origin: 10% 70%; animation: nudge 1.6s ease-in-out infinite; }
+.nudge path { fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.nudge-note { position: absolute; left: calc(100% + 70px); top: -38px; font: italic 400 20px/1 var(--serif); color: #9fb3c8; white-space: nowrap; transform: rotate(-6deg); }
+@keyframes nudge { 0%, 100% { transform: translateX(0) rotate(0deg); } 50% { transform: translateX(-10px) rotate(-7deg); } }
+@media (prefers-reduced-motion: reduce) { .nudge { animation: none; } }
+@media (max-width: 520px) { .nudge { width: 70px; top: -16px; } .nudge-note { left: calc(100% + 50px); top: -30px; font-size: 17px; } }
