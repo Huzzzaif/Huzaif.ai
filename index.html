@@ -3,71 +3,169 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#faf9f6" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#151413" media="(prefers-color-scheme: dark)">
-  <title>Huzaif Khan — Software Engineer &amp; AI Engineer</title>
-  <meta name="description" content="Software and AI engineer building on-device intelligence, useful agents, and production systems. Explore SenseCLLM and selected work.">
-  <meta property="og:title" content="Huzaif Khan — Software Engineer &amp; AI Engineer">
-  <meta property="og:description" content="Software and AI engineer building on-device intelligence, useful agents, and production systems. Explore SenseCLLM and selected work.">
+  <meta name="theme-color" content="#3b2620">
+  <title>Huzaif Khan — Software &amp; AI Engineer</title>
+  <meta name="description" content="Huzaif Khan, software and AI engineer in Los Angeles: on-device AI, LLM agents, RAG, prompt engineering, privacy-preserving ML and low-latency full-stack systems. IEEE-published, 4+ years in industry and research.">
+  <meta property="og:title" content="Huzaif Khan — Software &amp; AI Engineer">
+  <meta property="og:description" content="Private, fast AI and the full-stack systems around it. IEEE-published, 4+ years across industry and research.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://huzzzaif.github.io/Huzaif.ai/headshot.png">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="editorial.css">
   <script src="knowledge.js" defer></script>
   <script src="script.js" defer></script>
+  <script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js" } }</script>
+  <script type="module" src="brain.js"></script>
+  <script src="leather.js" defer></script>
+  <script type="module" src="avatar.js"></script>
 </head>
-<body>
+<body class="ed">
+<canvas class="leather" aria-hidden="true"></canvas>
 <a href="#main" class="skip-link">Skip to content</a>
-<div class="site-shell">
-  <aside class="sidebar" aria-label="About Huzaif and navigation">
-    <a href="index.html" class="identity"><img src="img/headshot.jpg" width="64" height="64" alt="Huzaif Khan"><span><strong>Huzaif Khan<span class="name-period">.</span></strong><span class="role">Software &amp; AI Engineer</span></span></a>
-    <p class="sidebar-intro">Building useful software.<br>Based in Los Angeles.</p>
-    <nav aria-label="Main navigation"><a href="index.html" aria-current="page">Selected work</a><a href="about.html">Background</a><a href="https://scholar.google.com/citations?user=M0gjnP4AAAAJ" target="_blank" rel="noopener">Research <span aria-hidden="true">↗</span></a><a href="huzaif-khan-resume.pdf" target="_blank" rel="noopener">Resume <span aria-hidden="true">↗</span></a></nav>
-    <div class="sidebar-now"><p class="now-label"><i aria-hidden="true"></i>Now</p><img src="logos/csudh.svg" alt="California State University, Dominguez Hills" class="now-logo" width="130" height="24"><p>Graduate Research Assistant, scaling a VR classroom to 50 headsets with streaming AI.</p><dl class="glance"><div><dt>4+</dt><dd>years shipping</dd></div><div><dt>3.95</dt><dd>M.S. GPA</dd></div></dl></div>
-    <div class="sidebar-bottom">
-      <button class="guide-launch" type="button" data-open-guide hidden><span class="guide-mark" aria-hidden="true">✳</span><span>Explore with a guide<small>Questions → relevant work</small></span><span aria-hidden="true">↗</span></button>
-      <div class="social-links"><a href="https://github.com/Huzzzaif" target="_blank" rel="noopener">GitHub</a><a href="https://linkedin.com/in/huzaif-khan" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:huzaiffkhhan@gmail.com">Email</a></div>
+<div class="frame">
+  <header class="ed-hero" id="top">
+    <div class="panels" aria-hidden="true"><i></i><i></i><i></i></div>
+    <p class="wordmark" aria-hidden="true">HUZAIF KHAN</p>
+    <canvas class="hero-brain" data-shape="brain" aria-hidden="true"></canvas>
+    <div class="hero-left">
+      <h1><span class="sr-only">Huzaif Khan, software and AI engineer. </span>I BUILD AI THAT’S<br>PRIVATE, FAST <em>and</em><br>REMEMBERS WHAT<br>IT <em>learns</em></h1>
+      <div class="hero-cta"><a class="pill pill-dark" href="mailto:huzaiffkhhan@gmail.com?subject=Software%20Engineer%20role">Email me</a><a class="pill pill-line" href="huzaif-khan-resume.pdf" target="_blank" rel="noopener">Resume ↗</a></div>
     </div>
-  </aside>
-  <main id="main" tabindex="-1">
-    <header class="intro">
-      <p class="eyebrow">SOFTWARE ENGINEERING / APPLIED AI</p>
-      <h1>I build AI that’s private, fast,<br>and remembers what it learns.</h1>
-      <p>I’m Huzaif, a software and AI engineer in Los Angeles with 4+ years across industry and research. I keep sensitive data on the device, give agents a memory they can reuse, and chase latency out of production apps.</p>
-      <p class="availability"><i aria-hidden="true"></i>Open to Software Engineer (SDE) roles</p>
-      <div class="hero-actions"><a class="button-primary" href="mailto:huzaiffkhhan@gmail.com?subject=Software%20Engineer%20role">Email me <span aria-hidden="true">↗</span></a><a class="button-quiet" href="huzaif-khan-resume.pdf" target="_blank" rel="noopener">Resume <span aria-hidden="true">↗</span></a><a class="inline-link" href="about.html">More about me <span aria-hidden="true">→</span></a></div>
-    </header>
-    <section class="impact" aria-label="Impact at a glance">
-      <div class="impact-item"><strong><span data-count="10.5" data-decimals="1">10.5</span>×</strong><span>faster PII detection, on the device</span><small>SenseCLLM</small></div>
-      <div class="impact-item"><strong><span data-count="3000" data-format="comma">3,000</span>+</strong><span>daily users on the app rebuild I led</span><small>Capgemini</small></div>
-      <div class="impact-item"><strong><span data-count="51">51</span>%</strong><span>fewer tokens when agents reuse findings</span><small>DataHub Steward</small></div>
-      <div class="impact-item"><strong><span data-count="6">6</span>+</strong><span>published papers in edge AI &amp; ML</span><small>Including IEEE AIIoT 2026</small></div>
-    </section>
-    <section class="org-strip" aria-labelledby="org-title"><h2 id="org-title">Built and published with</h2><ul><li><img src="logos/capgemini.svg" alt="Capgemini" width="120" height="28"><span>Industry · 2021–2023</span></li><li><img src="logos/csudh.svg" alt="California State University, Dominguez Hills" width="162" height="30"><span>M.S. &amp; research · 2023–now</span></li><li><img src="logos/ieee.svg" alt="IEEE" width="102" height="30"><span>AIIoT 2026 publication</span></li></ul></section>
-    <section class="selected-work" aria-labelledby="work-title">
-      <div class="section-label"><h2 id="work-title">Selected work</h2><span>2025 — 2026</span></div>
-      <a class="work-row" href="sensecllm.html"><div class="work-art sense-art" aria-hidden="true"><span class="art-caption">Recorded run</span><p class="sense-snippet"><mark>alex@example.com</mark></p><p class="sense-arrow">↓ on device</p><p class="sense-snippet enc"><code>«ENC:85aU…»</code></p></div><div class="work-summary"><div class="work-title"><h3>SenseCLLM</h3><span aria-hidden="true">↗</span></div><p>Protecting sensitive information before it reaches a cloud AI model.</p><span class="work-type">Edge AI · Published at IEEE AIIoT 2026</span></div><div class="work-metric"><strong>+49%</strong><span>F1 vs. Presidio</span></div></a>
-      <a class="work-row" href="steward.html"><div class="work-art shot-art" aria-hidden="true"><img src="img/steward-demo.jpg" alt="" width="160" height="139" loading="lazy"><span class="shot-tag">Live demo</span></div><div class="work-summary"><div class="work-title"><h3>DataHub Steward</h3><span aria-hidden="true">↗</span></div><p>Agents that investigate data dependencies and remember what they learn.</p><span class="work-type">AI agents · Data infrastructure</span></div><div class="work-metric"><strong>40%</strong><span>fewer entities inspected</span></div></a>
-      <a class="work-row" href="medical-nlp.html"><div class="work-art nlp-art" aria-hidden="true"><span class="art-caption">F1 by cancer type</span><div class="f1-mini"><i style="--f:0.90"></i><i style="--f:0.94"></i><i style="--f:1.00"></i><i style="--f:0.89"></i><i style="--f:0.41"></i><i style="--f:0.82"></i><i style="--f:1.00"></i><i style="--f:0.76"></i><i style="--f:0.90"></i><i style="--f:1.00"></i><i style="--f:0.48"></i><i style="--f:0.86"></i><i style="--f:0.84"></i><i style="--f:0.91"></i><i style="--f:0.93"></i><i style="--f:0.11"></i><i style="--f:0.09"></i><i style="--f:1.00"></i><i style="--f:0.84"></i><i style="--f:0.91"></i><i style="--f:0.86"></i><i style="--f:0.98"></i><i style="--f:0.60"></i><i style="--f:0.73"></i><i style="--f:0.91"></i><i style="--f:0.88"></i><i style="--f:1.00"></i><i style="--f:1.00"></i><i style="--f:1.00"></i><i style="--f:0.87"></i><i style="--f:0.47"></i><i style="--f:1.00"></i></div><span class="art-foot">Lung pair lowest</span></div><div class="work-summary"><div class="work-title"><h3>Medical Text Classification</h3><span aria-hidden="true">↗</span></div><p>Finding useful structure in unstructured pathology reports.</p><span class="work-type">Applied ML · Natural language processing</span></div><div class="work-metric"><strong>94.5%</strong><span>held-out accuracy</span></div></a>
-    </section>
-    <section class="latency" aria-labelledby="latency-title"><div class="section-label"><h2 id="latency-title">Latency, before and after</h2><span>Same attention, every layer</span></div>
-      <p class="latency-intro">Speed is a feature people feel. The same habit runs through enterprise apps, on-device AI, and real-time VR: find the slow path, then cache, batch, or stream it.</p>
-      <ol class="latency-chart">
-        <li style="--after:9%"><div class="lat-label"><strong>Clock-in</strong><span>Capgemini · enterprise app</span></div><div class="lat-bars"><i class="before"><b>2 s</b></i><i class="after"><b>180 ms</b></i></div><em>−91%</em></li>
-        <li style="--after:13.3%"><div class="lat-label"><strong>Page load</strong><span>Capgemini · e-commerce</span></div><div class="lat-bars"><i class="before"><b>6 s</b></i><i class="after"><b>0.8 s</b></i></div><em>−87%</em></li>
-        <li style="--after:9.5%"><div class="lat-label"><strong>PII detection</strong><span>SenseCLLM · on-device</span></div><div class="lat-bars"><i class="before"><b>1,960 ms</b></i><i class="after"><b>187 ms</b></i></div><em>−90%</em></li>
-        <li style="--after:9.7%"><div class="lat-label"><strong>AI first response</strong><span>CSUDH · VR classroom</span></div><div class="lat-bars"><i class="before"><b>3.6 s</b></i><i class="after"><b>~350 ms</b></i></div><em>−90%</em></li>
-      </ol>
-      <p class="latency-note">Each bar compares a before and after measurement for that system. Bars are scaled per row.</p>
-      <a class="inline-link" href="about.html#experience">Explore my experience <span aria-hidden="true">→</span></a></section>
+    <div class="hero-right">
+      <img class="badge" src="img/headshot-640.jpg" width="190" height="190" alt="Huzaif Khan">
+      <p class="hero-role">Software &amp; AI Engineer<br><em>Los Angeles</em></p>
+      <p class="hero-open"><i aria-hidden="true"></i>Open to SDE roles</p>
+    </div>
+  </header>
 
-    <footer><span>Huzaif Khan · <span id="year">2026</span></span><a href="mailto:huzaiffkhhan@gmail.com?subject=Software%20Engineer%20role">Hiring an SDE? Let’s talk <span aria-hidden="true">↗</span></a></footer>
+  <nav class="ed-bar" aria-label="Main navigation">
+    <a class="ed-brand" href="#top">HUZAIF KHAN</a>
+    <div class="ed-links"><a href="#work">Work</a><a href="about.html">Background</a><a href="https://scholar.google.com/citations?user=M0gjnP4AAAAJ" target="_blank" rel="noopener">Research ↗</a><a href="huzaif-khan-resume.pdf" target="_blank" rel="noopener">Resume ↗</a></div>
+    <div class="ed-actions"><button class="pill pill-ghost" type="button" data-open-guide hidden>Ask my digital twin</button><a class="pill pill-ice" href="mailto:huzaiffkhhan@gmail.com">Email me</a></div>
+  </nav>
+
+  <main id="main" tabindex="-1">
+    <section class="ed-intro">
+      <h2 class="display center">WHERE FULL-STACK<br>ENGINEERING <em>meets</em><br>APPLIED AI</h2>
+      <div class="collage">
+        <figure class="c-left"><img src="img/steward-demo.jpg" width="480" height="417" alt="DataHub Steward live demo" loading="lazy"></figure>
+        <figure class="c-main"><img src="img/on-the-way.jpg" width="1000" height="1000" alt="Huzaif in a suit reviewing notes on the way to a meeting" loading="lazy"></figure>
+        <figure class="c-right"><canvas data-shape="net" aria-hidden="true"></canvas></figure>
+      </div>
+      <p class="lede center">I’m Huzaif, a software and AI engineer in Los Angeles and a domain expert in private, fast, production-ready AI. Across <b>4+ years</b> of industry and research I’ve kept sensitive data on the device with <b>10.5×</b> faster PII detection, given agents a memory that cuts repeat work by <b>51%</b>, and helped run an enterprise app serving <b>1.2M requests a day</b> with zero downtime.</p>
+      <ol class="steps">
+        <li><a href="#work"><b>01.</b><span><strong>View my work</strong>Three projects, from on-device privacy to agents with memory.</span></a></li>
+        <li><a href="about.html"><b>02.</b><span><strong>Learn about me</strong>Capgemini, CSUDH research, 6+ papers and a 3.95 GPA.</span></a></li>
+        <li><a href="mailto:huzaiffkhhan@gmail.com?subject=Software%20Engineer%20role"><b>03.</b><span><strong>Start a conversation</strong>Open to Software Engineer (SDE) roles.</span></a></li>
+      </ol>
+    </section>
+
+    <section class="ed-work" id="work" aria-labelledby="work-title">
+      <div class="marquee" aria-hidden="true"><div><span>Selected work</span><i>✦</i><span>Selected work</span><i>✦</i><span>Selected work</span><i>✦</i><span>Selected work</span><i>✦</i></div><div><span>Selected work</span><i>✦</i><span>Selected work</span><i>✦</i><span>Selected work</span><i>✦</i><span>Selected work</span><i>✦</i></div></div>
+      <h2 id="work-title" class="sr-only">Selected work</h2>
+      <div class="work-grid">
+        <div class="stack" aria-hidden="true">
+          <figure class="polaroid" data-card="0"><span class="clip"></span><div class="art sense-art" aria-hidden="true"><span class="art-caption">Recorded run</span><p class="sense-snippet"><mark>alex@example.com</mark></p><p class="sense-arrow">↓ on device</p><p class="sense-snippet enc"><code>«ENC:85aU…»</code></p></div><figcaption>SenseCLLM</figcaption></figure>
+          <figure class="polaroid" data-card="1"><span class="clip"></span><div class="art shot-art"><img src="img/steward-demo-wide.jpg" alt="" width="640" height="356" loading="lazy"><span class="shot-tag">Live demo</span></div><figcaption>DataHub Steward</figcaption></figure>
+          <figure class="polaroid" data-card="2"><span class="clip"></span><div class="art nlp-art" aria-hidden="true"><span class="art-caption">F1 by cancer type</span><div class="f1-mini"><i style="--f:0.90"></i><i style="--f:0.94"></i><i style="--f:1.00"></i><i style="--f:0.89"></i><i style="--f:0.41"></i><i style="--f:0.82"></i><i style="--f:1.00"></i><i style="--f:0.76"></i><i style="--f:0.90"></i><i style="--f:1.00"></i><i style="--f:0.48"></i><i style="--f:0.86"></i><i style="--f:0.84"></i><i style="--f:0.91"></i><i style="--f:0.93"></i><i style="--f:0.11"></i><i style="--f:0.09"></i><i style="--f:1.00"></i><i style="--f:0.84"></i><i style="--f:0.91"></i><i style="--f:0.86"></i><i style="--f:0.98"></i><i style="--f:0.60"></i><i style="--f:0.73"></i><i style="--f:0.91"></i><i style="--f:0.88"></i><i style="--f:1.00"></i><i style="--f:1.00"></i><i style="--f:1.00"></i><i style="--f:0.87"></i><i style="--f:0.47"></i><i style="--f:1.00"></i></div><span class="art-foot">Lung pair lowest</span></div><figcaption>Medical NLP</figcaption></figure>
+        </div>
+        <ol class="projects">
+          <li data-project="0" data-brain="privacy"><a href="sensecllm.html"><h3>SENSECLLM</h3><p>Protecting sensitive information before it reaches a cloud AI model. On-device PII detection, <b>10.5×</b> faster, with LLM-generated patterns cached at a 0.78 hit rate.</p><span class="meta">Edge AI · Published at IEEE AIIoT 2026</span><span class="metric"><b>+49%</b> F1 vs. Presidio</span></a></li>
+          <li data-project="1" data-brain="memory"><a href="steward.html"><h3>DATAHUB STEWARD</h3><p>Agents that investigate data dependencies and remember what they learn, trimming repeat analysis tokens by <b>51%</b>.</p><span class="meta">AI agents · Data infrastructure · Live demo</span><span class="metric"><b>40%</b> fewer entities inspected</span></a></li>
+          <li data-project="2" data-brain="language"><a href="medical-nlp.html"><h3>MEDICAL TEXT CLASSIFICATION</h3><p>Finding structure in unstructured pathology reports across <b>32</b> cancer types, from TF-IDF and SVM to BioBERT.</p><span class="meta">Applied ML · Natural language processing</span><span class="metric"><b>94.5%</b> held-out accuracy</span></a></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="ed-two" aria-labelledby="two-title">
+      <h2 id="two-title" class="display center">TWO DISCIPLINES, <em>one</em> SYSTEM</h2>
+      <div class="two-grid">
+        <article>
+          <figure class="frame-card"><canvas data-shape="stack" aria-hidden="true"></canvas></figure>
+          <p class="kicker">01 · The full stack</p>
+          <h3>INTERFACE <em>to</em> INFRASTRUCTURE</h3>
+          <p>Clock-in cut from <b>2 s to 180 ms</b>, page load from <b>6 s to 0.8 s</b> as a catalog grew 60×, and checkout kept correct under <b>100+</b> concurrent requests.</p>
+          <ul class="tags"><li>React</li><li>Next.js</li><li>TypeScript</li><li>Node.js</li><li>FastAPI</li><li>PostgreSQL</li><li>AWS</li><li>Docker</li></ul>
+        </article>
+        <article>
+          <figure class="frame-card"><canvas data-shape="net" aria-hidden="true"></canvas></figure>
+          <p class="kicker">02 · Intelligence</p>
+          <h3>MODELS <em>that</em> SHIP</h3>
+          <p>Multi-agent pipelines streamed into live VR classrooms in <b>~350 ms</b>, PII detection on the device itself, and federated learning that stays encrypted with <b>46%</b> lower latency.</p>
+          <ul class="tags"><li>LLMs</li><li>RAG</li><li>Multi-agent</li><li>Prompt engineering</li><li>PyTorch</li><li>Federated learning</li></ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="ed-meet" aria-labelledby="meet-title">
+      <div class="meet-photos" aria-hidden="true">
+        <figure class="polaroid big"><span class="tape"></span><img src="img/off-the-clock.jpg" alt="Huzaif on an e-bike on a boardwalk trail under a big blue sky" width="828" height="1100" loading="lazy"><figcaption>Off the clock</figcaption></figure>
+        <ul class="filmstrip"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4"/><path d="M4 13h4"/></svg><span>Running</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg><span>Hiking</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m12 7.5 3.2 2.3-1.2 3.7h-4l-1.2-3.7z"/><path d="M12 3v4.5M15.2 9.8l4.4-1.4M14 13.5l2.7 3.7M10 13.5l-2.7 3.7M8.8 9.8 4.4 8.4"/></svg><span>Soccer</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="6" x2="10" y1="11" y2="11"/><line x1="8" x2="8" y1="9" y2="13"/><line x1="15" x2="15.01" y1="12" y2="12"/><line x1="18" x2="18.01" y1="10" y2="10"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258A4 4 0 0 0 17.32 5z"/></svg><span>Video games</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 20v-6M15 20v-6"/><path d="M7.5 4v10h3V4M13.5 4v10h3V4"/></svg><span>Piano</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg><span>Photography</span></li></ul>
+      </div>
+      <div class="meet-copy">
+        <h2 id="meet-title" class="display">MEET <em>Huzaif</em></h2>
+        <p class="mono">Software engineer. AI researcher. Published at IEEE.</p>
+        <p>I’ve always loved coding. It started with building algorithms and grew into prompt engineering, robotics and research. Today I work across the whole application: the interface people use, the intelligence behind it, and the infrastructure that keeps it fast.</p>
+        <p>Off the clock I’m running, hiking, playing soccer, gaming, at the piano or behind a camera.</p>
+        <a class="pill pill-taupe" href="about.html">More about me</a>
+      </div>
+    </section>
+
+    <section class="ed-logos" aria-labelledby="logos-title">
+      <h2 id="logos-title">Built and published with</h2>
+      <ul><li><img src="logos/capgemini.svg" alt="Capgemini" width="140" height="32"><span>Industry · 2021–2023</span></li><li><img src="logos/csudh.svg" alt="California State University, Dominguez Hills" width="180" height="34"><span>M.S. &amp; research · 2023–now</span></li><li><img src="logos/ieee.svg" alt="IEEE" width="112" height="33"><span>AIIoT 2026 publication</span></li></ul>
+    </section>
+
+    <section class="ed-numbers" aria-label="Impact at a glance">
+      <p class="display quote">“SPEED IS A FEATURE <em>people feel.</em>”</p>
+      <ul>
+        <li data-brain="privacy"><b><span data-count="10.5" data-decimals="1">10.5</span>×</b><span>faster PII detection, on the device</span><small>SenseCLLM</small></li>
+        <li data-brain="production"><b><span data-count="3000" data-format="comma">3,000</span>+</b><span>daily users on the app rebuild I led</span><small>Capgemini</small></li>
+        <li data-brain="memory"><b><span data-count="51">51</span>%</b><span>fewer tokens when agents reuse findings</span><small>DataHub Steward</small></li>
+        <li data-brain="research"><b><span data-count="6">6</span>+</b><span>published papers in edge AI &amp; ML</span><small>Including IEEE AIIoT 2026</small></li>
+      </ul>
+    </section>
+
+    <section class="ed-latency latency" aria-labelledby="latency-title">
+      <figure class="ms-clock" aria-label="Your local time">
+        <svg viewBox="0 0 200 200" aria-hidden="true">
+          <circle cx="100" cy="100" r="97" class="face"/>
+          <g class="ticks"><line x1="100.00" y1="14.00" x2="100.00" y2="5.00" class="major"/><line x1="109.41" y1="10.49" x2="109.93" y2="5.52" class="minor"/><line x1="118.71" y1="11.97" x2="119.75" y2="7.08" class="minor"/><line x1="127.81" y1="14.40" x2="129.36" y2="9.65" class="minor"/><line x1="136.61" y1="17.78" x2="138.64" y2="13.21" class="minor"/><line x1="143.00" y1="25.52" x2="147.50" y2="17.73" class="major"/><line x1="152.90" y1="27.19" x2="155.84" y2="23.14" class="minor"/><line x1="160.22" y1="33.12" x2="163.57" y2="29.40" class="minor"/><line x1="166.88" y1="39.78" x2="170.60" y2="36.43" class="minor"/><line x1="172.81" y1="47.10" x2="176.86" y2="44.16" class="minor"/><line x1="174.48" y1="57.00" x2="182.27" y2="52.50" class="major"/><line x1="182.22" y1="63.39" x2="186.79" y2="61.36" class="minor"/><line x1="185.60" y1="72.19" x2="190.35" y2="70.64" class="minor"/><line x1="188.03" y1="81.29" x2="192.92" y2="80.25" class="minor"/><line x1="189.51" y1="90.59" x2="194.48" y2="90.07" class="minor"/><line x1="186.00" y1="100.00" x2="195.00" y2="100.00" class="major"/><line x1="189.51" y1="109.41" x2="194.48" y2="109.93" class="minor"/><line x1="188.03" y1="118.71" x2="192.92" y2="119.75" class="minor"/><line x1="185.60" y1="127.81" x2="190.35" y2="129.36" class="minor"/><line x1="182.22" y1="136.61" x2="186.79" y2="138.64" class="minor"/><line x1="174.48" y1="143.00" x2="182.27" y2="147.50" class="major"/><line x1="172.81" y1="152.90" x2="176.86" y2="155.84" class="minor"/><line x1="166.88" y1="160.22" x2="170.60" y2="163.57" class="minor"/><line x1="160.22" y1="166.88" x2="163.57" y2="170.60" class="minor"/><line x1="152.90" y1="172.81" x2="155.84" y2="176.86" class="minor"/><line x1="143.00" y1="174.48" x2="147.50" y2="182.27" class="major"/><line x1="136.61" y1="182.22" x2="138.64" y2="186.79" class="minor"/><line x1="127.81" y1="185.60" x2="129.36" y2="190.35" class="minor"/><line x1="118.71" y1="188.03" x2="119.75" y2="192.92" class="minor"/><line x1="109.41" y1="189.51" x2="109.93" y2="194.48" class="minor"/><line x1="100.00" y1="186.00" x2="100.00" y2="195.00" class="major"/><line x1="90.59" y1="189.51" x2="90.07" y2="194.48" class="minor"/><line x1="81.29" y1="188.03" x2="80.25" y2="192.92" class="minor"/><line x1="72.19" y1="185.60" x2="70.64" y2="190.35" class="minor"/><line x1="63.39" y1="182.22" x2="61.36" y2="186.79" class="minor"/><line x1="57.00" y1="174.48" x2="52.50" y2="182.27" class="major"/><line x1="47.10" y1="172.81" x2="44.16" y2="176.86" class="minor"/><line x1="39.78" y1="166.88" x2="36.43" y2="170.60" class="minor"/><line x1="33.12" y1="160.22" x2="29.40" y2="163.57" class="minor"/><line x1="27.19" y1="152.90" x2="23.14" y2="155.84" class="minor"/><line x1="25.52" y1="143.00" x2="17.73" y2="147.50" class="major"/><line x1="17.78" y1="136.61" x2="13.21" y2="138.64" class="minor"/><line x1="14.40" y1="127.81" x2="9.65" y2="129.36" class="minor"/><line x1="11.97" y1="118.71" x2="7.08" y2="119.75" class="minor"/><line x1="10.49" y1="109.41" x2="5.52" y2="109.93" class="minor"/><line x1="14.00" y1="100.00" x2="5.00" y2="100.00" class="major"/><line x1="10.49" y1="90.59" x2="5.52" y2="90.07" class="minor"/><line x1="11.97" y1="81.29" x2="7.08" y2="80.25" class="minor"/><line x1="14.40" y1="72.19" x2="9.65" y2="70.64" class="minor"/><line x1="17.78" y1="63.39" x2="13.21" y2="61.36" class="minor"/><line x1="25.52" y1="57.00" x2="17.73" y2="52.50" class="major"/><line x1="27.19" y1="47.10" x2="23.14" y2="44.16" class="minor"/><line x1="33.12" y1="39.78" x2="29.40" y2="36.43" class="minor"/><line x1="39.78" y1="33.12" x2="36.43" y2="29.40" class="minor"/><line x1="47.10" y1="27.19" x2="44.16" y2="23.14" class="minor"/><line x1="57.00" y1="25.52" x2="52.50" y2="17.73" class="major"/><line x1="63.39" y1="17.78" x2="61.36" y2="13.21" class="minor"/><line x1="72.19" y1="14.40" x2="70.64" y2="9.65" class="minor"/><line x1="81.29" y1="11.97" x2="80.25" y2="7.08" class="minor"/><line x1="90.59" y1="10.49" x2="90.07" y2="5.52" class="minor"/></g>
+          <g class="nums"><text x="100.0" y="35.0">12</text><text x="172.0" y="107.0">3</text><text x="100.0" y="179.0">6</text><text x="28.0" y="107.0">9</text></g>
+          <line class="hand hour" x1="100" y1="112" x2="100" y2="58"/>
+          <line class="hand minute" x1="100" y1="116" x2="100" y2="30"/>
+          <g class="hand second"><line x1="100" y1="124" x2="100" y2="18"/><circle cx="100" cy="124" r="4"/></g>
+          <circle cx="100" cy="100" r="4.5" class="pin"/>
+        </svg>
+        <figcaption><time class="ms-digital">--:--:--</time><span>your local time</span></figcaption>
+      </figure>
+      <h2 id="latency-title" class="display center">MEASURED IN <em>milliseconds</em></h2>
+      <p class="lede center">The same habit runs through enterprise apps, on-device AI and real-time VR: find the slow path, then cache, batch or stream it.</p>
+      <ol class="latency-chart">
+        <li data-brain="speed" style="--after:9%"><div class="lat-label"><strong>Clock-in</strong><span>Capgemini · enterprise app</span></div><div class="lat-bars"><i class="before"><b>2 s</b></i><i class="after"><b>180 ms</b></i></div><em>−91%</em></li>
+        <li data-brain="speed" style="--after:13.3%"><div class="lat-label"><strong>Page load</strong><span>Capgemini · e-commerce</span></div><div class="lat-bars"><i class="before"><b>6 s</b></i><i class="after"><b>0.8 s</b></i></div><em>−87%</em></li>
+        <li data-brain="speed" style="--after:9.5%"><div class="lat-label"><strong>PII detection</strong><span>SenseCLLM · on-device</span></div><div class="lat-bars"><i class="before"><b>1,960 ms</b></i><i class="after"><b>187 ms</b></i></div><em>−90%</em></li>
+        <li data-brain="speed" style="--after:9.7%"><div class="lat-label"><strong>AI first response</strong><span>CSUDH · VR classroom</span></div><div class="lat-bars"><i class="before"><b>3.6 s</b></i><i class="after"><b>~350 ms</b></i></div><em>−90%</em></li>
+      </ol>
+      <p class="latency-note center">Each bar compares a before and after measurement for that system. Bars are scaled per row.</p>
+      <p class="center"><a class="pill pill-line" href="about.html#experience">Explore my experience →</a></p>
+    </section>
+
+    <section class="ed-contact" id="contact">
+      <h2 class="display center">LET’S BUILD SOMETHING <em>intelligent</em></h2>
+      <a class="mail" href="mailto:huzaiffkhhan@gmail.com?subject=Software%20Engineer%20role">huzaiffkhhan@gmail.com</a>
+      <p class="links"><a href="https://linkedin.com/in/huzaif-khan" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/Huzzzaif" target="_blank" rel="noopener">GitHub</a><a href="https://scholar.google.com/citations?user=M0gjnP4AAAAJ" target="_blank" rel="noopener">Google Scholar</a></p>
+    </section>
   </main>
+  <footer class="ed-foot"><span>HUZAIF KHAN · <span id="year">2026</span></span><a href="mailto:huzaiffkhhan@gmail.com?subject=Software%20Engineer%20role">Hiring an SDE? Let’s talk ↗</a></footer>
 </div>
+<button class="twin-bubble" type="button" data-open-guide hidden aria-label="Ask my digital twin"><span class="twin-label">Ask my digital twin</span><span class="twin-orb"><canvas class="twin-canvas" aria-hidden="true"></canvas><img class="twin-fallback" src="img/twin.jpg" alt="" width="240" height="240"></span></button>
 <dialog id="guide" aria-labelledby="guide-title" aria-describedby="guide-description">
-  <div class="guide-header"><span class="guide-mark" aria-hidden="true">✳</span><div><h2 id="guide-title">A guide to my work</h2><p id="guide-description">Curated answers, linked to the evidence.</p></div><button type="button" class="icon-button" id="close-guide" aria-label="Close guide">×</button></div>
+  <div class="guide-header"><img class="twin-face" src="img/twin.jpg" alt="" width="48" height="48"><div><h2 id="guide-title">Ask my digital twin</h2><p id="guide-description">Curated answers, linked to the evidence.</p></div><button type="button" class="icon-button" id="close-guide" aria-label="Close guide">×</button></div>
   <div class="guide-scroll">
     <div class="guide-welcome"><p>What would you like to know?</p><span>Start with a question. I’ll point you to the relevant project, experience, or source.</span></div>
     <div class="guide-suggestions"><button type="button" data-question="Give me the quick introduction">The quick introduction <span>↗</span></button><button type="button" data-question="How did SenseCLLM get 10.5 times faster?">How did SenseCLLM get faster? <span>↗</span></button><button type="button" data-question="Show me backend engineering experience">Show me backend experience <span>↗</span></button></div>

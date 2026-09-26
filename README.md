@@ -19,7 +19,10 @@ Open `http://127.0.0.1:4173/`. No build step or package installation is required
 - `sensecllm.html`, `steward.html`, `medical-nlp.html`: project case studies
 - `knowledge.js`: reviewed guide answers, matching terms, and source links
 - `script.js`: guide interactions and recorded SenseCLLM walkthrough
-- `styles.css`: responsive layout and reduced-motion support
+- `styles.css`: base styles shared by every page; `editorial.css`: the editorial layout, palette and leather frame
+- `brain.js`: the 3D brain, layered stack and neural network (Three.js from jsDelivr)
+- `leather.js`: the lit tufted-leather background (WebGL, CSS fallback)
+- `avatar.js`: the standing “digital twin” figure that opens the guide
 - `huzaif-khan-resume.pdf`: user-supplied resume, unchanged
 - `logos/`: Capgemini, CSU Dominguez Hills, and IEEE marks from Wikimedia Commons (IEEE tagline cropped). Organization logos are trademarks of their owners and appear only to identify where the work happened.
 

@@ -288,3 +288,75 @@ function renderCareerMap(root) {
 document.querySelectorAll('[data-career-map]').forEach(renderCareerMap);
 
 document.querySelector('#year').textContent = String(new Date().getFullYear());
+
+// Sections rise in as they arrive; project art tilts toward the cursor.
+if (!reduceMotion) {
+  document.querySelectorAll('.org-strip, .latency').forEach(node => {
+    node.classList.add('rise');
+    whenVisible(node, () => node.classList.add('is-in'));
+  });
+  if (window.matchMedia('(hover: hover)').matches) {
+    document.querySelectorAll('.work-row').forEach(row => {
+      const art = row.querySelector('.work-art');
+      if (!art) return;
+      row.addEventListener('pointermove', e => {
+        const r = art.getBoundingClientRect();
+        art.style.setProperty('--ty', `${((e.clientX - r.left) / r.width - 0.5) * 16}deg`);
+        art.style.setProperty('--tx', `${(0.5 - (e.clientY - r.top) / r.height) * 12}deg`);
+        art.style.setProperty('--gx', `${((e.clientX - r.left) / r.width) * 100}%`);
+        art.style.setProperty('--gy', `${((e.clientY - r.top) / r.height) * 100}%`);
+      });
+      row.addEventListener('pointerleave', () => { art.style.removeProperty('--tx'); art.style.removeProperty('--ty'); });
+    });
+  }
+}
+
+// Editorial home: hovering a project brings its polaroid to the front and tilts it.
+(() => {
+  const cards = document.querySelectorAll('.stack .polaroid');
+  const items = document.querySelectorAll('.projects [data-project]');
+  if (!cards.length) return;
+  const show = i => {
+    cards.forEach(c => c.classList.toggle('is-front', c.dataset.card === String(i)));
+    items.forEach(li => li.classList.toggle('is-active', li.dataset.project === String(i)));
+  };
+  items.forEach(li => {
+    li.addEventListener('pointerenter', () => show(li.dataset.project));
+    li.addEventListener('focusin', () => show(li.dataset.project));
+  });
+  show(0);
+  const stack = document.querySelector('.stack');
+  if (!reduceMotion && window.matchMedia('(hover: hover)').matches) {
+    stack.addEventListener('pointermove', e => {
+      const r = stack.getBoundingClientRect();
+      const front = stack.querySelector('.is-front');
+      front?.style.setProperty('--ty', `${((e.clientX - r.left) / r.width - 0.5) * 14}deg`);
+      front?.style.setProperty('--tx', `${(0.5 - (e.clientY - r.top) / r.height) * 10}deg`);
+    });
+    stack.addEventListener('pointerleave', () => cards.forEach(c => { c.style.removeProperty('--tx'); c.style.removeProperty('--ty'); }));
+    cards.forEach(c => c.addEventListener('click', () => show(c.dataset.card)));
+  }
+})();
+
+// Local-time clock: a sweeping second hand, plus hours, minutes and seconds as text.
+(() => {
+  const clock = document.querySelector('.ms-clock');
+  if (!clock) return;
+  const hands = { hour: clock.querySelector('.hour'), minute: clock.querySelector('.minute'), second: clock.querySelector('.second') };
+  const digital = clock.querySelector('.ms-digital');
+  const format = new Intl.DateTimeFormat(undefined, { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+  let lastText = '';
+  const tick = () => {
+    const now = new Date();
+    const s = now.getSeconds() + (reduceMotion ? 0 : now.getMilliseconds() / 1000);
+    const m = now.getMinutes() + s / 60, h = (now.getHours() % 12) + m / 60;
+    hands.hour.setAttribute('transform', `rotate(${h * 30} 100 100)`);
+    hands.minute.setAttribute('transform', `rotate(${m * 6} 100 100)`);
+    hands.second.setAttribute('transform', `rotate(${s * 6} 100 100)`);
+    const text = format.format(now);
+    if (text !== lastText) { digital.textContent = text; digital.setAttribute('datetime', now.toISOString()); lastText = text; }
+  };
+  tick();
+  if (reduceMotion) setInterval(tick, 1000);
+  else { const loop = () => { tick(); requestAnimationFrame(loop); }; requestAnimationFrame(loop); }
+})();

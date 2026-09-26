@@ -13,24 +13,28 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="editorial.css">
+
   <script src="knowledge.js" defer></script>
   <script src="script.js" defer></script>
+  <script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js" } }</script>
+  <script src="leather.js" defer></script>
+  <script type="module" src="avatar.js"></script>
 </head>
-<body>
+<body class="sub">
+<canvas class="leather" aria-hidden="true"></canvas>
 <a href="#main" class="skip-link">Skip to content</a>
 <div class="site-shell">
-  <aside class="sidebar" aria-label="About Huzaif and navigation">
-    <a href="index.html" class="identity"><img src="img/headshot.jpg" width="64" height="64" alt="Huzaif Khan"><span><strong>Huzaif Khan<span class="name-period">.</span></strong><span class="role">Software &amp; AI Engineer</span></span></a>
-    <p class="sidebar-intro">Building useful software.<br>Based in Los Angeles.</p>
-    <nav aria-label="Main navigation"><a href="index.html" aria-current="location">Selected work</a><a href="about.html">Background</a><a href="https://scholar.google.com/citations?user=M0gjnP4AAAAJ" target="_blank" rel="noopener">Research <span aria-hidden="true">↗</span></a><a href="huzaif-khan-resume.pdf" target="_blank" rel="noopener">Resume <span aria-hidden="true">↗</span></a></nav>
-    <div class="sidebar-now"><p class="now-label"><i aria-hidden="true"></i>Now</p><img src="logos/csudh.svg" alt="California State University, Dominguez Hills" class="now-logo" width="130" height="24"><p>Graduate Research Assistant, scaling a VR classroom to 50 headsets with streaming AI.</p><dl class="glance"><div><dt>4+</dt><dd>years shipping</dd></div><div><dt>3.95</dt><dd>M.S. GPA</dd></div></dl></div>
-    <div class="sidebar-bottom">
-      <button class="guide-launch" type="button" data-open-guide hidden><span class="guide-mark" aria-hidden="true">✳</span><span>Explore with a guide<small>Questions → relevant work</small></span><span aria-hidden="true">↗</span></button>
-      <div class="social-links"><a href="https://github.com/Huzzzaif" target="_blank" rel="noopener">GitHub</a><a href="https://linkedin.com/in/huzaif-khan" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:huzaiffkhhan@gmail.com">Email</a></div>
-    </div>
-  </aside>
+  <header class="topbar">
+  <a class="brand" href="index.html"><img src="img/headshot.jpg" width="40" height="40" alt=""><span>HUZAIF KHAN<span class="name-period">.</span></span></a>
+  <nav aria-label="Main navigation">
+    <a href="index.html#work">Work</a><a href="about.html">Background</a><a href="https://scholar.google.com/citations?user=M0gjnP4AAAAJ" target="_blank" rel="noopener">Research <span aria-hidden="true">↗</span></a><a href="huzaif-khan-resume.pdf" target="_blank" rel="noopener">Resume <span aria-hidden="true">↗</span></a>
+    <button class="guide-chip" type="button" data-open-guide hidden>Ask my digital twin</button>
+    <a class="nav-cta" href="mailto:huzaiffkhhan@gmail.com">Email me</a>
+  </nav>
+</header>
   <main id="main" tabindex="-1">
     <a class="back-link" href="index.html">← Selected work</a>
     <header class="project-intro"><p class="eyebrow">APPLIED ML / NATURAL LANGUAGE · 2025</p><h1>Medical Text<br>Classification</h1><p>Finding structure<br>in clinical language.</p><div class="project-actions"><a href="https://github.com/Huzzzaif/nlp-cancer-prediction" target="_blank" rel="noopener">Code &amp; evaluation results ↗</a></div></header>
@@ -43,8 +47,9 @@
     <footer><span>Huzaif Khan · <span id="year">2026</span></span><a href="mailto:huzaiffkhhan@gmail.com?subject=Software%20Engineer%20role">Hiring an SDE? Let’s talk <span aria-hidden="true">↗</span></a></footer>
   </main>
 </div>
+<button class="twin-bubble" type="button" data-open-guide hidden aria-label="Ask my digital twin"><span class="twin-label">Ask my digital twin</span><span class="twin-orb"><canvas class="twin-canvas" aria-hidden="true"></canvas><img class="twin-fallback" src="img/twin.jpg" alt="" width="240" height="240"></span></button>
 <dialog id="guide" aria-labelledby="guide-title" aria-describedby="guide-description">
-  <div class="guide-header"><span class="guide-mark" aria-hidden="true">✳</span><div><h2 id="guide-title">A guide to my work</h2><p id="guide-description">Curated answers, linked to the evidence.</p></div><button type="button" class="icon-button" id="close-guide" aria-label="Close guide">×</button></div>
+  <div class="guide-header"><img class="twin-face" src="img/twin.jpg" alt="" width="48" height="48"><div><h2 id="guide-title">Ask my digital twin</h2><p id="guide-description">Curated answers, linked to the evidence.</p></div><button type="button" class="icon-button" id="close-guide" aria-label="Close guide">×</button></div>
   <div class="guide-scroll">
     <div class="guide-welcome"><p>What would you like to know?</p><span>Start with a question. I’ll point you to the relevant project, experience, or source.</span></div>
     <div class="guide-suggestions"><button type="button" data-question="Give me the quick introduction">The quick introduction <span>↗</span></button><button type="button" data-question="How did SenseCLLM get 10.5 times faster?">How did SenseCLLM get faster? <span>↗</span></button><button type="button" data-question="Show me backend engineering experience">Show me backend experience <span>↗</span></button></div>
