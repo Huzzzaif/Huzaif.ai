@@ -2,7 +2,7 @@
 // (spiky black hair, big eyes, white tee, khaki flares, black-and-white sneakers, a camera).
 // It moves slowly between poses, its head follows the cursor, it blinks, and clicking it
 // opens the guide. Toon shading, ink outlines and real cast shadows give it depth.
-import * as THREE from 'three';
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js';
 
 const canvas = document.querySelector('.twin-canvas');
 const still = matchMedia('(prefers-reduced-motion: reduce)').matches;

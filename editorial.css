@@ -375,3 +375,4 @@ canvas.leather.is-ready { opacity: 1; }
 .twin-bubble .twin-label { margin-bottom: 70px; }
 @media (max-width: 760px) { .twin-orb.is-3d { width: 88px; height: 126px; } .twin-bubble .twin-label { margin-bottom: 52px; } }
 .filmstrip { gap: 8px; top: 2%; } .filmstrip li { aspect-ratio: 16 / 10; } .meet-photos { min-height: clamp(460px, 46vw, 620px); }
+@media (max-width: 760px) { .twin-bubble .twin-label { display: none; } }

@@ -4,6 +4,8 @@
 (() => {
   const canvas = document.querySelector('canvas.leather');
   if (!canvas) return;
+  // phones show only a sliver of leather; keep their WebGL budget for the brain and the twin
+  if (window.matchMedia('(max-width: 760px)').matches) { canvas.remove(); return; }
   const gl = canvas.getContext('webgl', { antialias: false, alpha: false, preserveDrawingBuffer: false });
   if (!gl) { canvas.remove(); return; }
 

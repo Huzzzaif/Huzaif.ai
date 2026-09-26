@@ -1,6 +1,6 @@
 // Neural visuals in framed spots on the page: a brain in the hero (drag to turn; hovering
 // work marked data-brain lights its region), plus stacked layers and a neural network.
-import * as THREE from 'three';
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js';
 
 const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const DPR = Math.min(window.devicePixelRatio || 1, 2);
@@ -346,27 +346,38 @@ function stackScene(canvas, rand) {
 
 const BUILDERS = { brain: brainScene, net: netScene, stack: stackScene };
 
-/* ---------- engine: one loop, only visible canvases render ---------- */
+/* ---------- engine: one shared WebGL renderer, copied into each visible canvas ---------- */
+// Phones keep only a few WebGL contexts alive, so every shape renders through a single
+// offscreen renderer and is copied into its own 2D canvas.
+
+let shared = null;
+function sharedRenderer() {
+  if (shared) return shared;
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setPixelRatio(1);
+  renderer.setClearColor(0x000000, 0);
+  renderer.setScissorTest(true);
+  shared = { renderer, w: 0, h: 0 };
+  return shared;
+}
 
 function mount(canvas, i) {
   const build = BUILDERS[canvas.dataset.shape];
   if (!build) return null;
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-  renderer.setPixelRatio(DPR);
-  renderer.setClearColor(0x000000, 0);
+  const ctx = canvas.getContext('2d');
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 50);
   const s = build(canvas, seeded(7 + i * 13));
   scene.add(s.group);
   camera.position.set(0, 0, s.distance);
-  const view = { canvas, renderer, scene, camera, s, visible: true };
+  const view = { canvas, ctx, scene, camera, s, visible: true, w: 0, h: 0 };
   const fit = () => {
-    const w = canvas.clientWidth, h = canvas.clientHeight;
+    const w = Math.round(canvas.clientWidth * DPR), h = Math.round(canvas.clientHeight * DPR);
     if (!w || !h) return;
-    renderer.setSize(w, h, false);
+    canvas.width = w; canvas.height = h;
+    view.w = w; view.h = h;
     camera.aspect = w / h;
-    // keep the whole shape in frame on narrow canvases
-    camera.position.z = s.distance * Math.max(1, 1.1 / camera.aspect);
+    camera.position.z = s.distance * Math.max(1, 1.1 / camera.aspect); // keep the whole shape in frame
     camera.updateProjectionMatrix();
     if (still) draw(view, 4, 0);
   };
@@ -390,20 +401,32 @@ function paint(views) {
 }
 
 function draw(view, t, dt) {
+  if (!view.w || !view.h) return;
   for (const m of [...view.s.points, ...view.s.signals]) m.uniforms.uTime.value = t;
   view.s.update(t, dt);
-  view.renderer.render(view.scene, view.camera);
+  const r = sharedRenderer();
+  if (view.w > r.w || view.h > r.h) { // grow the shared buffer to fit the largest canvas
+    r.w = Math.max(r.w, view.w); r.h = Math.max(r.h, view.h);
+    r.renderer.setSize(r.w, r.h, false);
+  }
+  r.renderer.setViewport(0, 0, view.w, view.h);
+  r.renderer.setScissor(0, 0, view.w, view.h);
+  r.renderer.clear();
+  r.renderer.render(view.scene, view.camera);
+  view.ctx.clearRect(0, 0, view.w, view.h);
+  view.ctx.drawImage(r.renderer.domElement, 0, r.h - view.h, view.w, view.h, 0, 0, view.w, view.h);
 }
 
 function start() {
   const views = [...document.querySelectorAll('canvas[data-shape]')].map(mount).filter(Boolean);
   if (!views.length) return;
   paint(views);
-  dark.addEventListener('change', () => { paint(views); if (still) views.forEach((v) => draw(v, 4, 0)); });
+  const repaint = () => { paint(views); if (still) views.forEach((v) => draw(v, 4, 0)); };
+  if (dark.addEventListener) dark.addEventListener('change', repaint); else dark.addListener?.(repaint);
   if (still) { views.forEach((v) => draw(v, 4, 0)); return; }
   let last = performance.now(), t = 0;
   const frame = (now) => {
-    const dt = Math.min((now - last) / 1000, 0.05);
+    const dt = Math.max(0, Math.min((now - last) / 1000, 0.05));
     last = now; t += dt;
     if (!document.hidden) views.forEach((v) => v.visible && draw(v, t, dt));
     requestAnimationFrame(frame);
