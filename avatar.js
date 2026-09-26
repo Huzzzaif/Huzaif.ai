@@ -139,11 +139,17 @@ const POSES = [
 ];
 
 function start() {
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-  renderer.setClearColor(0x000000, 0);
-  renderer.shadowMap.enabled = true;
-  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  let renderer = makeRenderer();
+  function makeRenderer() {
+    const r = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'low-power' });
+    r.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    r.setClearColor(0x000000, 0);
+    r.shadowMap.enabled = true;
+    r.shadowMap.type = THREE.PCFSoftShadowMap;
+    return r;
+  }
+  // three.js restores a lost context itself when the browser allows it; re-apply size afterwards
+  canvas.addEventListener('webglcontextrestored', () => { renderer.setSize(canvas.clientWidth, canvas.clientHeight, false); });
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(28, 1, 0.1, 60);
   camera.position.set(0, 2.6, 10.5);

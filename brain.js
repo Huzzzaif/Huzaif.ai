@@ -351,13 +351,18 @@ const BUILDERS = { brain: brainScene, net: netScene, stack: stackScene };
 // offscreen renderer and is copied into its own 2D canvas.
 
 let shared = null;
+let painted = false;
 function sharedRenderer() {
-  if (shared) return shared;
-  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  if (shared && !shared.lost) return shared;
+  if (shared) { try { shared.renderer.dispose(); } catch { /* already gone */ } }
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'low-power' });
   renderer.setPixelRatio(1);
   renderer.setClearColor(0x000000, 0);
   renderer.setScissorTest(true);
-  shared = { renderer, w: 0, h: 0 };
+  const state = { renderer, w: 0, h: 0, lost: false };
+  // phones drop WebGL contexts under memory pressure or after app switches; rebuild on the next frame
+  renderer.domElement.addEventListener('webglcontextlost', (e) => { e.preventDefault(); state.lost = true; });
+  shared = state;
   return shared;
 }
 
@@ -379,7 +384,7 @@ function mount(canvas, i) {
     camera.aspect = w / h;
     camera.position.z = s.distance * Math.max(1, 1.1 / camera.aspect); // keep the whole shape in frame
     camera.updateProjectionMatrix();
-    if (still) draw(view, 4, 0);
+    if (still && painted) draw(view, 4, 0);
   };
   new ResizeObserver(fit).observe(canvas);
   new IntersectionObserver(([e]) => { view.visible = e.isIntersecting; }, { rootMargin: '80px' }).observe(canvas);
@@ -404,7 +409,8 @@ function draw(view, t, dt) {
   if (!view.w || !view.h) return;
   for (const m of [...view.s.points, ...view.s.signals]) m.uniforms.uTime.value = t;
   view.s.update(t, dt);
-  const r = sharedRenderer();
+  let r = sharedRenderer();
+  if (r.renderer.getContext().isContextLost()) { r.lost = true; r = sharedRenderer(); }
   if (view.w > r.w || view.h > r.h) { // grow the shared buffer to fit the largest canvas
     r.w = Math.max(r.w, view.w); r.h = Math.max(r.h, view.h);
     r.renderer.setSize(r.w, r.h, false);
@@ -421,8 +427,11 @@ function start() {
   const views = [...document.querySelectorAll('canvas[data-shape]')].map(mount).filter(Boolean);
   if (!views.length) return;
   paint(views);
+  painted = true;
   const repaint = () => { paint(views); if (still) views.forEach((v) => draw(v, 4, 0)); };
   if (dark.addEventListener) dark.addEventListener('change', repaint); else dark.addListener?.(repaint);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) views.forEach((v) => draw(v, 4, 0)); });
+  window.addEventListener('pageshow', () => views.forEach((v) => draw(v, 4, 0)));
   if (still) { views.forEach((v) => draw(v, 4, 0)); return; }
   let last = performance.now(), t = 0;
   const frame = (now) => {
